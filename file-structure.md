@@ -1,25 +1,52 @@
-house-designer/
+### brainstorm of layout
+just an idea to start 
+house-layout/
 │
-├── README.md
 ├── CMakeLists.txt
-├── .gitignore
+├── README.md
 │
-├── src/
+├── include/              
+│   ├── models/
+│   │   ├── Position.h
+│   │   ├── Room.h
+│   │   ├── Bedroom.h
+│   │   ├── Bathroom.h
+│   │   ├── Kitchen.h
+│   │   ├── LivingRoom.h
+│   │   ├── Hallway.h
+│   │   ├── House.h
+│   │   └── Grid.h
+│   │
+│   ├── systems/
+│   │   ├── LayoutGenerator.h
+│   │   ├── RuleValidator.h
+│   │   └── Renderer.h
+│   │
+│   └── utils/
+│       └── MathUtils.h         
+│
+├── src/                         
 │   ├── main.cpp
-│   ├── House.cpp
-│   ├── Room.cpp
-│   ├── LayoutGenerator.cpp
+│   │
+│   ├── models/
+│   │   ├── Room.cpp
+│   │   ├── Bedroom.cpp
+│   │   ├── Bathroom.cpp
+│   │   ├── Kitchen.cpp
+│   │   ├── LivingRoom.cpp
+│   │   ├── Hallway.cpp
+│   │   ├── House.cpp
+│   │   └── Grid.cpp
+│   │
+│   ├── systems/
+│   │   ├── LayoutGenerator.cpp
+│   │   ├── RuleValidator.cpp
+│   │   └── Renderer.cpp
+│   │
+│   └── utils/
+│       └── MathUtils.cpp
 │
-├── include/
-│   ├── House.h
-│   ├── Room.h
-│   ├── LayoutGenerator.h
-│
-├── data/
-│   └── sample_house.json
-│
-├── examples/
-│   └── example_output.txt
-│
-└── docs/
-    └── architecture.md
+└── tests/                          # Unit tests (optional)
+    ├── test_grid.cpp
+    ├── test_rules.cpp
+    └── test_layout.cpp
