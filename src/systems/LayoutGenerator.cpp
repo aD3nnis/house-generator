@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#include "LayoutOutput.h"
+#include "../../include/systems/LayoutOutput.h"
 
 // Ratios that I picked relative to living room
 const float R_BEDROOM  = 0.7f;

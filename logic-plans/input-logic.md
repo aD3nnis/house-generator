@@ -2,7 +2,6 @@ input:
 Enter number of bedrooms (1-6): 3
 Enter number of bathrooms (1-4): 2
 Enter total square footage (500-5000): 1800
-Garage: yes ?
 ---
 
 
