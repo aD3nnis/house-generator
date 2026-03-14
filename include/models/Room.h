@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+#pragma once
+#ifndef ROOM_H
+#define ROOM_H
+
+
+class Room{
+    private: 
+        int length;
+        int width;
+    public:
+    virtual float get_size() const = 0;
+};
+#endif
