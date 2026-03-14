@@ -12,5 +12,6 @@ class Room{
         int width;
     public:
     virtual float get_size() const = 0;
+    virtual ~Room() = default;   
 };
 #endif

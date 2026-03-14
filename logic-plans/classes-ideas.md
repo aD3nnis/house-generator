@@ -5,14 +5,27 @@ in a house all rooms will be touching either the kitchen or livingroom
 Parent Class: Room
     Room attributes: 
         - 4 walls/sides (what does this mean? thinking coordinates)
-        - 1 door 
-        - length
-        - width
+            - north
+            - south
+            - east
+            - west
+        - 1 door ( = to % of side)
+        - length?
+        - width?
         
     methods: 
     size -> this should by polymorphism because each size will be calculated differently 
         (same name different work)
     position -> polymorphism?
+    // what is goal? figure out cordinates of room
+        // where sides go
+
+    // what are inputs? 
+    // first randomize what type of room to check first 
+    // so if Bed then 50% kitchen, 50% livingroom to check sides first
+    // we can figure this out later but min room necessary on side is length of door. 
+        // door length calculation based on srq foot of house? 
+        // door length calculation fixed? <- i want to say yes to this
         Bed:
             bed 1 side = 1 side kitchen || bed 1 side = 1 side livingroom
         Bath: 
@@ -68,3 +81,15 @@ check if side taken(){ // could be a member function of room? maybe position?
         }
     }
 }
+size of grid(){
+    based of sqr ft? 500 - 5000
+    
+}
+
+position livingRoom and Kitchen(){
+    in center of grid
+}
+
+
+// thoughts: 
+i have this setup wrong. I was trying to use calcDimensions for each child class of room but i dont want that because the functionality is going to stay the same. instead i want to use the layoutgenerator class. but the issue is my parameters are going to be different. I dont think this will by polymorphism where i have two seperate functions, because the action within the function will be exactly the same
