@@ -11,7 +11,6 @@ private:
     float livingroom_size;
 
 public:
-    float get_livingroom_size();
     float get_default_size_ratio() override;
 
     // my formula for room size: x = (100) / (b*r1 + a*r2 + r3 + 1)

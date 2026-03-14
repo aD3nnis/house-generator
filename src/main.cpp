@@ -40,10 +40,10 @@ int main()
     liv.set_livingroom_size(bedrooms, Bedroom().get_default_size_ratio(), bathrooms, Bathroom().get_default_size_ratio(), kit.get_default_size_ratio());
 
     //  Assign percentages
-    float pLiving = liv.get_livingroom_size();
-    float totalBedroomPercent = bedrooms * Bedroom().get_default_size_ratio() * liv.get_livingroom_size();
-    float totalBathroomPercent = bathrooms * Bathroom().get_default_size_ratio() * liv.get_livingroom_size();
-    float pKitchen = kit.get_default_size_ratio() * liv.get_livingroom_size();
+    float pLiving = liv.get_default_size_ratio();
+    float totalBedroomPercent = bedrooms * Bedroom().get_default_size_ratio() * liv.get_default_size_ratio();
+    float totalBathroomPercent = bathrooms * Bathroom().get_default_size_ratio() * liv.get_default_size_ratio();
+    float pKitchen = kit.get_default_size_ratio() * liv.get_default_size_ratio();
 
     //  Convert to sqft and dimensions
     auto makeRoom = [&](std::string name, float percent) -> RoomResult { // pass by reference to the function
@@ -130,6 +130,8 @@ int main()
         beds[i - 1].update_dimensions(layout_gen);
         rooms.push_back(makeRoom(name, percent));
     }
+    beds[0].make_walls_of_room();
+    beds[0].display_room_grid();
 
     for (int i = 1; i <= bathrooms; i++)
     {

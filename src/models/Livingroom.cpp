@@ -1,10 +1,5 @@
 #include "../../include/models/Livingroom.h"
 
-float Livingroom::get_livingroom_size()
-{
-    return livingroom_size;
-}
-
 float Livingroom::get_default_size_ratio()
 {
     return livingroom_size;

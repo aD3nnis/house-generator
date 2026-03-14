@@ -83,7 +83,7 @@ check if side taken(){ // could be a member function of room? maybe position?
 }
 size of grid(){
     based of sqr ft? 500 - 5000
-    
+
 }
 
 position livingRoom and Kitchen(){
@@ -93,3 +93,7 @@ position livingRoom and Kitchen(){
 
 // thoughts: 
 i have this setup wrong. I was trying to use calcDimensions for each child class of room but i dont want that because the functionality is going to stay the same. instead i want to use the layoutgenerator class. but the issue is my parameters are going to be different. I dont think this will by polymorphism where i have two seperate functions, because the action within the function will be exactly the same
+
+
+the reason why i dont want to just past everything as i go to start with on coordinates grid is because what if i want to add things to specific rooms inside them, that would have to be done on grid and i want that functionality to be done in each room
+so i think this should be polymorphisim eventually. Each room will have a dictionary tuple of coordinates where I will map out coordinates. I can extract the method for inputting coordinates though from position perhaps. 
