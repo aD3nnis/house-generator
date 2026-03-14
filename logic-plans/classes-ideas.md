@@ -1,5 +1,3 @@
-
-
 Class House
 House will have room objects
 
