@@ -10,6 +10,7 @@ class Room{
     private: 
         int length;
         int width;
+        const int DOOR = 2;
     public:
     virtual float get_size() const = 0;
     virtual ~Room() = default;   

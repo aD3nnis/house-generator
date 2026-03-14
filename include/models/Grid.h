@@ -9,6 +9,7 @@ class Grid{
     private:
         map<tuple<int,int>,char> coordinates;
         int side = 50;
+        int middle_of_grid_r = (side/2)-5; // 5 is abitrary
     public: 
         void set_coordinates(){
             for(int x = 0; x < side; x++ ){
@@ -16,6 +17,9 @@ class Grid{
                     coordinates[make_tuple(x,y)] = '.';
                 }
             }
+        }
+        int get_middle_grid_r(){
+            return middle_of_grid_r;
         }
         map<tuple<int,int>,char>& get_coordinates(){
             return coordinates;

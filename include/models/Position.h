@@ -9,8 +9,8 @@ using namespace std;
 
 class Position{
     // i need grid
-    char s = '_';
-    char n = '_';
+    char s = '-';
+    char n = '-';
     char e = '|';
     char w = '|';
     public: 
@@ -20,13 +20,26 @@ class Position{
             // grid tuple start at 20,20
             map<tuple<int,int>,char>& coordinates = grid.get_coordinates();
             cout << endl;
-            for(int i = 20; i < liv.get_width()+20; i++){
-                for(int j =20; j < liv.get_height()+20; j++){
-                  coordinates[make_tuple(i,j)] = '_';
+            int x_min = grid.get_middle_grid_r();
+            int x_max = liv.get_width() + grid.get_middle_grid_r() - 1;
+            int y_min = grid.get_middle_grid_r();
+            int y_max = liv.get_height() + grid.get_middle_grid_r() - 1;
+
+            for (int x = x_min; x <= x_max; x++) {
+                for (int y = y_min; y <= y_max; y++) {
+                    if (x == x_min) {
+                        coordinates[make_tuple(x, y)] = n;
+                    }else if(x == x_max){
+                         coordinates[make_tuple(x, y)] = s;
+                    }else if (y == y_min){
+                         coordinates[make_tuple(x, y)] = w;
+                    } else if(y == y_max){
+                         coordinates[make_tuple(x, y)] = e;
+                    } else{
+                        coordinates[make_tuple(x, y)] = ' ';
+                    }
                 }
-                cout << endl;
             }
-            //swap(x,s);
             grid.display_grid();
         }
 };
