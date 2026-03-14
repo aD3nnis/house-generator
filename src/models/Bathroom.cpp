@@ -1,6 +1,6 @@
 #include "../../include/models/Bathroom.h"
 
-float Bathroom::default_size_ratio()
+float Bathroom::get_default_size_ratio()
 {
     return R_BATHROOM;
 }

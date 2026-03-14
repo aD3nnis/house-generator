@@ -9,25 +9,28 @@ using namespace std;
 
 class Position{
     // i need grid
+    char n = '_';
     char s = '-';
-    char n = '-';
-    char e = '|';
+    char e = '!';
     char w = '|';
     public: 
+
+        // facilitator function
         void place_livingroom(Grid &grid, Livingroom &liv){
-            //(20,20 to start)
-            char x = '.';
-            // grid tuple start at 20,20
             map<tuple<int,int>,char>& coordinates = grid.get_coordinates();
             cout << endl;
             int x_min = grid.get_middle_grid_r();
             int x_max = liv.get_width() + grid.get_middle_grid_r() - 1;
+            int x_mid = liv.get_width()/2 + grid.get_middle_grid_r();
             int y_min = grid.get_middle_grid_r();
             int y_max = liv.get_height() + grid.get_middle_grid_r() - 1;
-
+            int y_mid = liv.get_height()/2 + grid.get_middle_grid_r();
             for (int x = x_min; x <= x_max; x++) {
                 for (int y = y_min; y <= y_max; y++) {
-                    if (x == x_min) {
+                    if( x == x_mid && y == y_mid ){
+                        coordinates[make_tuple(x, y)] = 'L';
+                    }
+                    else if (x == x_min) {
                         coordinates[make_tuple(x, y)] = n;
                     }else if(x == x_max){
                          coordinates[make_tuple(x, y)] = s;
@@ -40,6 +43,10 @@ class Position{
                     }
                 }
             }
-            grid.display_grid();
+          //  grid.display_grid();
+        }
+        // facilitator function
+        void check_if_side_taken(){
+
         }
 };

@@ -9,5 +9,5 @@ private:
     static constexpr float R_BATHROOM = 0.4f;
 
 public:
-    static float default_size_ratio();
+    float get_default_size_ratio() override;
 };

@@ -14,11 +14,9 @@ using namespace std;
 
 int main()
 {
-    vector<Bedroom> beds;   // should i have a list?
-    vector<Bathroom> baths; // should i have a list?
     Kitchen kit;
     Livingroom liv;
-    LayoutGenerator layout1;
+    LayoutGenerator layout_gen;
     Grid grid;
     Position position;
     srand((unsigned)time(nullptr));
@@ -33,15 +31,19 @@ int main()
     std::cout << "Enter total square footage (500 - 2000):";
     std::cin >> totalSqft;
 
-    liv.set_livingroom_size(bedrooms, Bedroom::default_size_ratio(), bathrooms, Bathroom::default_size_ratio(), kit.get_size());
-    grid.set_coordinates();
-    grid.display_grid();
+    vector<Bedroom> beds;    // should i have a list?
+    vector<Bathroom> baths;  // should i have a list?
+    beds.resize(bedrooms);   // resize is vector function
+    baths.resize(bathrooms); // resize is vector function
+    // use to be that above code needs to be before code below because vector needs a side to call from bed in index
+    // but i can use temporary classes because the default size ratio is the same for each
+    liv.set_livingroom_size(bedrooms, Bedroom().get_default_size_ratio(), bathrooms, Bathroom().get_default_size_ratio(), kit.get_default_size_ratio());
 
     //  Assign percentages
-    float pLiving = liv.get_size();
-    float totalBedroomPercent = bedrooms * Bedroom::default_size_ratio() * liv.get_size();
-    float totalBathroomPercent = bathrooms * Bathroom::default_size_ratio() * liv.get_size();
-    float pKitchen = kit.get_size() * liv.get_size();
+    float pLiving = liv.get_livingroom_size();
+    float totalBedroomPercent = bedrooms * Bedroom().get_default_size_ratio() * liv.get_livingroom_size();
+    float totalBathroomPercent = bathrooms * Bathroom().get_default_size_ratio() * liv.get_livingroom_size();
+    float pKitchen = kit.get_default_size_ratio() * liv.get_livingroom_size();
 
     //  Convert to sqft and dimensions
     auto makeRoom = [&](std::string name, float percent) -> RoomResult { // pass by reference to the function
@@ -49,14 +51,14 @@ int main()
         r.name = name;                                                   // set the name of the room
         r.percent = percent;                                             // set the percentage of the room
         r.sqft = (percent / 100.0f) * totalSqft;                         // set the sqft of the room
-        layout1.calcDimensions(r.sqft, r.width, r.height);               // calculate the dimensions of the room
+        layout_gen.calcDimensions(r.sqft, r.width, r.height);            // calculate the dimensions of the room
         return r;
     };
     // random weight for the room
-    auto randomWeight = [&layout1]() -> float
+    auto randomWeight = [&layout_gen]() -> float
     {
-        float t = (float)rand() / (float)RAND_MAX;                                                                           // random number between 0 and 1
-        return layout1.get_min_room_variation() + t * (layout1.get_max_room_variation() - layout1.get_min_room_variation()); // random weight between MIN_ROOM_VARIATION and MAX_ROOM_VARIATION
+        float t = (float)rand() / (float)RAND_MAX;                                                                                    // random number between 0 and 1
+        return layout_gen.get_min_room_variation() + t * (layout_gen.get_max_room_variation() - layout_gen.get_min_room_variation()); // random weight between MIN_ROOM_VARIATION and MAX_ROOM_VARIATION
     };
 
     auto distributePercent = [&](int count, float totalPercent) -> std::vector<float>
@@ -112,12 +114,10 @@ int main()
     // dont take string take Object
     rooms.push_back(makeRoom("Living Room", pLiving));
     rooms.push_back(makeRoom("Kitchen", pKitchen));
-    int w; int h;
-    layout1.calcDimensions(liv.set_dimensions(pLiving, totalSqft), w, h);
-    liv.set_width(w);
-    liv.set_height(h);
-
+    liv.set_room_sqft(pLiving, totalSqft);
+    liv.update_dimensions(layout_gen);
     position.place_livingroom(grid, liv);
+    grid.display_grid();
 
     for (int i = 1; i <= bedrooms; i++)
     {
@@ -126,6 +126,8 @@ int main()
         if (isMaster)
             name += " (Master)";
         float percent = bedroomPercents[i - 1];
+        beds[i - 1].set_room_sqft(percent, totalSqft);
+        beds[i - 1].update_dimensions(layout_gen);
         rooms.push_back(makeRoom(name, percent));
     }
 

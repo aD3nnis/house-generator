@@ -8,13 +8,18 @@ using namespace std;
 class Grid{
     private:
         map<tuple<int,int>,char> coordinates;
-        int side = 50;
-        int middle_of_grid_r = (side/2)-5; // 5 is abitrary
+        int grid_side;
+        int middle_of_grid_r;
     public: 
-        void set_coordinates(){
-            for(int x = 0; x < side; x++ ){
-                for(int y =0; y < side; y++){
-                    coordinates[make_tuple(x,y)] = '.';
+        Grid(){
+            grid_side = 50;
+            middle_of_grid_r = (grid_side/2)-5;  // 5 is abitrary
+            set_coordinates(coordinates);
+        }
+        void set_coordinates(map<tuple<int,int>,char> &coordinates_copy){ // coordinate nickname
+            for(int x = 0; x < grid_side; x++ ){
+                for(int y =0; y < grid_side; y++){
+                    coordinates_copy[make_tuple(x,y)] = '.';
                 }
             }
         }
@@ -25,8 +30,8 @@ class Grid{
             return coordinates;
         }
         void display_grid(){
-            for(int x = 0; x < side; x++ ){
-                for(int y =0; y < side; y++){
+            for(int x = 0; x < grid_side; x++ ){
+                for(int y =0; y < grid_side; y++){
                     auto key = make_tuple(x,y);
                     cout << coordinates[key] << " "; 
                 }
