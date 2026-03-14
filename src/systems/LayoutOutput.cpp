@@ -11,7 +11,7 @@ void printRoom(const RoomResult& room) {
               << "\n";
 }
 
-void printLayoutReport(const std::vector<RoomResult>& rooms, bool hasHallway, int targetSqft) {
+void printLayoutReport(const std::vector<RoomResult>& rooms, int targetSqft) {
     std::cout << "\n=== Results ===\n";
     std::cout << std::string(58, '-') << "\n";
     std::cout << std::left << std::setw(20) << "Room"
@@ -22,10 +22,6 @@ void printLayoutReport(const std::vector<RoomResult>& rooms, bool hasHallway, in
 
     float totalPercent = 0.0f;
     float totalRoomSqft = 0.0f;
-
-    if (!hasHallway) {
-        std::cout << "Hallway: NONE (rolled 0% - entrance via living room or kitchen)\n";
-    }
 
     for (const RoomResult& room : rooms) {
         printRoom(room);

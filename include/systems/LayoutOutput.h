@@ -13,6 +13,6 @@ struct RoomResult {
 };
 
 void printRoom(const RoomResult& room);
-void printLayoutReport(const std::vector<RoomResult>& rooms, bool hasHallway, int targetSqft);
+void printLayoutReport(const std::vector<RoomResult>& rooms, int targetSqft);
 
 #endif

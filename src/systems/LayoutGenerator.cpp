@@ -37,26 +37,11 @@ int main() {
     std::cout << "\n=== House Layout Math Calculator ===\n\n";
     std::cout << "Enter number of bedrooms  (1-6): "; std::cin >> bedrooms;
     std::cout << "Enter number of bathrooms (1-4): "; std::cin >> bathrooms;
-    std::cout << "Enter total square footage:       "; std::cin >> totalSqft;
+    std::cout << "Enter total square footage:      "; std::cin >> totalSqft;
 
-    
-    float H; // hallway percentage which can have decimals
-    bool hasHallway; // if hallway is present true or false
-
-    // only matters for 1 bedroom because hallway is required for 2+ bedrooms
-    if (bedrooms == 1) {
-        // random 0-20, if 0 no hallway
-        int roll = rand() % 21;  // 0 to 20
-        H = (float)roll;
-        hasHallway = (roll != 0);
-    } else { // more than 1 bedroom
-        // random 5-20, always has hallway
-        H = (float)(rand() % 16 + 5);  // 5 to 20
-        hasHallway = true;
-    }
-    // my formula for room size: x = (100 - H) / (b*r1 + a*r2 + r3 + 1)
+    // my formula for room size: x = (100) / (b*r1 + a*r2 + r3 + 1)
     float denominator = (bedrooms * R_BEDROOM) + (bathrooms * R_BATHROOM) + R_KITCHEN + 1.0f;
-    float x = (100.0f - H) / denominator;
+    float x = (100.0f) / denominator;
 
     //  Assign percentages
     float pLiving   = x;
@@ -120,9 +105,6 @@ int main() {
 
     std::vector<RoomResult> rooms;
     // for output
-    if (hasHallway) {
-        rooms.push_back(makeRoom("Hallway", H));
-    }
 
     rooms.push_back(makeRoom("Living Room", pLiving));
     rooms.push_back(makeRoom("Kitchen", pKitchen));
@@ -143,7 +125,7 @@ int main() {
         rooms.push_back(makeRoom(name, percent));
     }
 
-    printLayoutReport(rooms, hasHallway, totalSqft);
+    printLayoutReport(rooms, totalSqft);
 
     return 0;
 }
