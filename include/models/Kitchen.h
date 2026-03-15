@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 #include "Room.h"
@@ -10,4 +11,6 @@ private:
 
 public:
     float get_default_size_ratio() override;
+    Kitchen() : Room() {};
+    Kitchen(const string& n) : Room(n) {}
 };

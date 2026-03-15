@@ -14,6 +14,7 @@ private:
     int width{};
     int height{};
     float room_sqft{};
+    string name = "Room";
     map<tuple<int,int>,char> walls;
 
 public:
@@ -21,6 +22,8 @@ public:
     static const char S = '-';
     static const char E = '!';
     static const char W = '|';
+    Room(){width = 0; height = 0; room_sqft= 0;}
+    Room(string n){ name = n;}
 
     int get_width() { return width; }
     int get_height() { return height; }

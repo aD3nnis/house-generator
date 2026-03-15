@@ -14,7 +14,7 @@ using namespace std;
 
 int main()
 {
-    Kitchen kit;
+    Kitchen kit("kit");
     Livingroom liv;
     LayoutGenerator layout_gen;
     Grid grid;

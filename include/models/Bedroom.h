@@ -10,4 +10,6 @@ private:
 
 public:
     float get_default_size_ratio() override;
+    Bedroom() : Room() {};
+    Bedroom(const string& n) : Room(n) {}
 };
