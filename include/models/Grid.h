@@ -30,6 +30,7 @@ class Grid{
             return coordinates;
         }
         void display_grid(){
+            cout << endl;
             for(int x = 0; x < grid_side; x++ ){
                 for(int y =0; y < grid_side; y++){
                     auto key = make_tuple(x,y);
@@ -37,5 +38,6 @@ class Grid{
                 }
                 cout << endl;
             }
+            cout << endl;
         }
 };

@@ -10,10 +10,18 @@ using namespace std;
 
 class Position{
     // i need grid
+    vector<char> free_space;
+    vector<char> taken_space;
+    // map<tuple<int,int>char> 
 
     public: 
         // facilitator function
         void place_livingroom(Grid &grid, House &house);
         // facilitator function
-        void check_if_side_taken();
+        void check_if_side_taken(Grid &grid, House &house);
+        void pick_random_free_side();
+        void picked_north_side(Grid &grid, Room &room);
+        void picked_south_side(Grid &grid, Room &room);
+        void picked_east_side(Grid &grid, Room &room);
+        void picked_west_side(Grid &grid, Room &room);
 };

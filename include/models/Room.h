@@ -11,8 +11,8 @@ using namespace std;
 class Room
 {
 private:
-    int width{}; // inner loop 
-    int height{}; // outer loop
+    int width{}; // inner loop but also y
+    int height{}; // outer loop but also x
     float room_sqft{};
     string name = "Room";
     char name_symbol = 'R';
