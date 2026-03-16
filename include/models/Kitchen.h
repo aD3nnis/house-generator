@@ -1,3 +1,5 @@
+#ifndef KITCHEN_H
+#define KITCHEN_H
 #include <iostream>
 #include <string>
 using namespace std;
@@ -14,3 +16,4 @@ public:
     Kitchen() : Room() {};
     Kitchen(const string& n) : Room(n) {}
 };
+#endif

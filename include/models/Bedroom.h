@@ -1,3 +1,5 @@
+#ifndef BEDROOM_H
+#define BEDROOM_H
 #include <iostream>
 using namespace std;
 
@@ -13,3 +15,4 @@ public:
     Bedroom() : Room() {};
     Bedroom(const string& n) : Room(n) {}
 };
+#endif
