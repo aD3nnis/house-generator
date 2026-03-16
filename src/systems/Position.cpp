@@ -157,53 +157,112 @@ void Position::picked_west_side(Grid &grid, Room &room, Room &newRoom){
 void Position::place_rooms_random(Grid& grid, vector<Room*>& placed, vector<Room*>& rooms_to_place)
 {
     for (Room* newRoom : rooms_to_place) {
-
         Room* anchor = nullptr;
 
-        // If it's a Bedroom, only choose anchors that are Kitchen or Livingroom
+        // Helper: does this candidate have at least one free side?
+        auto has_free_side = [&](Room* cand) -> bool {
+            check_if_side_taken(grid, *cand);
+            return !free_space.empty();
+        };
+
         if (dynamic_cast<Bedroom*>(newRoom) != nullptr) {
-            vector<Room*> allowed;
+            // Build lists of kitchens and livingrooms among already placed rooms
+            vector<Room*> kitchens;
+            vector<Room*> livingrooms;
             for (Room* r : placed) {
-                if (dynamic_cast<Kitchen*>(r) != nullptr ||
-                    dynamic_cast<Livingroom*>(r) != nullptr) {
-                    allowed.push_back(r);
+                if (dynamic_cast<Kitchen*>(r) != nullptr) {
+                    kitchens.push_back(r);
+                } else if (dynamic_cast<Livingroom*>(r) != nullptr) {
+                    livingrooms.push_back(r);
                 }
             }
-            // Fallback in case none found (optional, but safe)
-            if (!allowed.empty()) {
-                anchor = allowed[rand() % allowed.size()];
+
+            // coin flip: 0 = kitchens first, 1 = livingrooms first
+            int preferLivingroomFirst = rand() % 2;
+
+            auto try_list_for_anchor = [&](const vector<Room*>& rooms) -> Room* {
+                for (Room* r : rooms) {
+                    if (has_free_side(r)) {
+                        return r;
+                    }
+                }
+                return nullptr;
+            };
+
+            if (preferLivingroomFirst) {
+                // 1) Try livingrooms first
+                anchor = try_list_for_anchor(livingrooms);
+                // 2) If none, then kitchens
+                if (!anchor) {
+                    anchor = try_list_for_anchor(kitchens);
+                }
             } else {
+                // 1) Try kitchens first
+                anchor = try_list_for_anchor(kitchens);
+                // 2) If none, then livingrooms
+                if (!anchor) {
+                    anchor = try_list_for_anchor(livingrooms);
+                }
+            }
+
+            // 3) If still none, try any placed room with a free side
+            if (!anchor) {
+                for (Room* r : placed) {
+                    if (has_free_side(r)) {
+                        anchor = r;
+                        break;
+                    }
+                }
+            }
+
+            // 4) Absolute fallback: just pick a random placed room
+            if (!anchor && !placed.empty()) {
                 anchor = placed[rand() % placed.size()];
+                check_if_side_taken(grid, *anchor);
+            }
+        } else if (dynamic_cast<Kitchen*>(newRoom) != nullptr) {
+            // Kitchens should branch off a Livingroom
+            vector<Room*> livingrooms;
+            for (Room* r : placed) {
+                if (dynamic_cast<Livingroom*>(r) != nullptr) {
+                    livingrooms.push_back(r);
+                }
             }
 
-            cout << "[DEBUG][Bedroom] anchor chosen: " << room_type_name(anchor)
-                 << " at (" << anchor->get_anchor_x() << "," << anchor->get_anchor_y() << ")"
-                 << endl;
+            // 1) Prefer a livingroom that actually has a free side
+            for (Room* lr : livingrooms) {
+                if (has_free_side(lr)) {
+                    anchor = lr;
+                    break;
+                }
+            }
+
+            // 2) Fallback: if no livingroom has a free side, try any placed room with a free side
+            if (!anchor) {
+                for (Room* r : placed) {
+                    if (has_free_side(r)) {
+                        anchor = r;
+                        break;
+                    }
+                }
+            }
+
+            // 3) Absolute fallback: if still none, attach to a random placed room (if any)
+            if (!anchor && !placed.empty()) {
+                anchor = placed[rand() % placed.size()];
+                check_if_side_taken(grid, *anchor);
+            }
         } else {
-            // non‑bedrooms can attach to anything
-            anchor = placed[rand() % placed.size()];
+            // Non-bedrooms, non-kitchens can attach to any placed room
+            if (!placed.empty()) {
+                anchor = placed[rand() % placed.size()];
+                check_if_side_taken(grid, *anchor);
+            }
         }
 
-        check_if_side_taken(grid, *anchor);
-
-        if (dynamic_cast<Bedroom*>(newRoom) != nullptr) {
-            cout << "[DEBUG][Bedroom] sides checked around " << room_type_name(anchor) << " -> ";
-            if (!taken_space.empty()) {
-                cout << "taken: ";
-                for (char s : taken_space) cout << side_name(s) << " ";
-            } else {
-                cout << "taken: (none) ";
-            }
-            if (!free_space.empty()) {
-                cout << "| free: ";
-                for (char s : free_space) cout << side_name(s) << " ";
-            } else {
-                cout << "| free: (none) ";
-            }
-            cout << endl;
+        if (anchor) {
+            pick_random_free_side(grid, *anchor, *newRoom);
         }
-
-        pick_random_free_side(grid, *anchor, *newRoom);
         placed.push_back(newRoom);
     }
 }
