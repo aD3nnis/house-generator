@@ -11,6 +11,7 @@ class Grid{
         int grid_side;
         int middle_of_grid_r; // top right corner of rooms
         char empty_space = '.';
+        char display_empty_space = ' ';
     public: 
         Grid(){
             grid_side = 50;
@@ -36,9 +37,12 @@ class Grid{
         void display_grid(){
             cout << endl;
             for(int x = 0; x < grid_side; x++ ){
-                for(int y =0; y < grid_side; y++){
+                for(int y = 0; y < grid_side; y++){
                     auto key = make_tuple(x,y);
-                    cout << coordinates[key] << " "; 
+                    char c = coordinates[key];
+                    // Show empty cells as spaces, but keep logic using '.'
+                    if (c == empty_space) c = display_empty_space;
+                    cout << c << " ";
                 }
                 cout << endl;
             }

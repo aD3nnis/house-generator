@@ -19,10 +19,11 @@ private:
     map<tuple<int,int>,char> walls;
 
 public:
-    static const char N = '_';
-    static const char S = '-';
-    static const char E = '!';
-    static const char W = '|';
+public:
+    static constexpr char N = '_';
+    static constexpr char S = '-';
+    static constexpr char E = '!';
+    static constexpr char W = '|';
     Room(){width = 0; height = 0; room_sqft= 0;}
     Room(string n, char n_s){ name = n; name_symbol = n_s; }
 

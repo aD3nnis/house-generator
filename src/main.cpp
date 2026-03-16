@@ -78,10 +78,11 @@ int main()
 
     position.place_livingroom(grid, house1);
     position.check_if_side_taken(grid, house1.get_livingroom());
-    // position.picked_north_side(grid, house1.get_kitchen());
-    position.picked_south_side(grid, house1.get_kitchen());
     position.check_if_side_taken(grid, house1.get_livingroom());
-    // position.picked_east_side(grid, house1.get_kitchen());
+   // position.pick_random_free_side(grid, house1.get_kitchen());
+    // position.picked_north_side(grid, house1.get_kitchen());
+    position.check_if_side_taken(grid, house1.get_livingroom());
+     position.picked_east_side(grid, house1.get_kitchen());
     // position.picked_west_side(grid, house1.get_kitchen());
     // position.check_if_side_taken(grid, house1.get_livingroom());
     grid.display_grid();
