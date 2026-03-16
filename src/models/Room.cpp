@@ -22,13 +22,13 @@ void Room::make_walls_of_room(){
     // if each room has a dictonary of coordinates then it should be initalized in room. 
     // positions n,s,e,w
     // add to its own ditconary?
-    for(int x = 0; x < width; x++ ){
-        for(int y =0; y < height; y++){
+    for(int x = 0; x < height; x++ ){
+        for(int y =0; y < width; y++){
             if(x == 0){    
                 walls[make_tuple(x,y)] = Room::N;
-            }else if (x == width - 1){
+            }else if (x == height - 1){
                 walls[make_tuple(x,y)] = Room::S;
-            }else if (y == height - 1){
+            }else if (y == width - 1){
                 walls[make_tuple(x,y)] = Room::E;
             }else if (y == 0){
                 walls[make_tuple(x,y)] = Room::W;
@@ -40,13 +40,13 @@ void Room::make_walls_of_room(){
 
 }
 void Room::place_name_in_room(){
-    auto key = make_tuple(width/2,height/2);
+    auto key = make_tuple(height/2,width/2);
     walls[key] = name_symbol; 
 }
 
 void Room::display_room_grid(){
-    for(int x = 0; x < width; x++ ){
-        for(int y =0; y < height; y++){
+    for(int x = 0; x < height; x++ ){
+        for(int y =0; y < width; y++){
             auto key = make_tuple(x,y);
             cout << walls[key] << " "; 
         }

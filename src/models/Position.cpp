@@ -12,8 +12,8 @@ void Position::place_livingroom(Grid &grid, House &house){
             // int y_max = liv.get_height() + grid.get_middle_grid_r() - 1;
             // int y_mid = liv.get_height()/2 + grid.get_middle_grid_r();
           //  grid.display_grid();
-        for (int x = 0; x < house.get_livingroom().get_width(); x++) {
-            for (int y = 0; y < house.get_livingroom().get_height(); y++){
+        for (int x = 0; x < house.get_livingroom().get_height(); x++) {
+            for (int y = 0; y < house.get_livingroom().get_width(); y++){
                 auto key = make_tuple(grid.get_middle_grid_r()+x,grid.get_middle_grid_r()+ y);
                 auto key2 = make_tuple(x,y);
                 coordinates[key] = house.get_livingroom().get_room()[key2];
@@ -22,5 +22,5 @@ void Position::place_livingroom(Grid &grid, House &house){
 }
         // facilitator function
 void Position::check_if_side_taken(){
-
+        // if '|' check 
         }
