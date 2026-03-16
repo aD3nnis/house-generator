@@ -18,7 +18,7 @@ class Position{
         // facilitator function
         void place_livingroom(Grid &grid, House &house);
         // facilitator function
-        void check_if_side_taken(Grid &grid, House &house);
+        void check_if_side_taken(Grid &grid, Room &room);
         void pick_random_free_side();
         void picked_north_side(Grid &grid, Room &room);
         void picked_south_side(Grid &grid, Room &room);

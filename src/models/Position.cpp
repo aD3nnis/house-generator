@@ -21,21 +21,47 @@ void Position::place_livingroom(Grid &grid, House &house){
         }
 }
         // facilitator function
-void Position::check_if_side_taken(Grid &grid, House &house){
+void Position::check_if_side_taken(Grid &grid, Room &room){
     map<tuple<int,int>,char>& coordinates = grid.get_coordinates();
 
-    for (int x = 0; x < house.get_livingroom().get_height(); x++) {
-        for (int y = 0; y < house.get_livingroom().get_width(); y++){
+    for (int x = 0; x < room.get_height(); x++) {
+        cout << endl;
+        for (int y = 0; y < room.get_width(); y++){
             if(x == 0){ 
-                if (coordinates[make_tuple(grid.get_middle_grid_r() + x, grid.get_middle_grid_r()+ y)] == Room::N){
-                    // add north as free for pick random side
-
-                   // free_space.push_back(Room::N); // put this in a randomizer to pick a random side the room will go on
-                    cout << "free";
-                }else if (coordinates[make_tuple(grid.get_middle_grid_r() + x, grid.get_middle_grid_r()+ y)] == Room::S){
-                    cout << "taken";
+                // Check cells directly north of the room's north wall
+                auto northKey = make_tuple(grid.get_middle_grid_r() + x - 1, grid.get_middle_grid_r() + y);
+                if (coordinates[northKey] == grid.get_empty_space()){
+                    cout << "freeNorth";
+                } else {
+                    cout << "takenNorth";
                 }
-                cout << endl;
+            }else if (x == room.get_height() - 1){ 
+                // Check cells directly south of the room's south wall
+                auto southKey = make_tuple(grid.get_middle_grid_r() + x + 1, grid.get_middle_grid_r() + y);
+                if (coordinates[southKey] == grid.get_empty_space()){
+                    cout << "freeSouth";
+                } else {
+                    cout << "takenSouth";
+                }
+
+            }else if (y == room.get_width() - 1){
+                // Check cells directly east of the room's east wall
+                auto eastKey = make_tuple(grid.get_middle_grid_r() + x, grid.get_middle_grid_r() + y + 1);
+                if (coordinates[eastKey] == grid.get_empty_space()){
+                    cout << "freeEast";
+                } else {
+                    cout << "takenEast";
+                }
+
+            }else if (y == 0){
+                // Check cells directly west of the room's west wall
+                auto westKey = make_tuple(grid.get_middle_grid_r() + x, grid.get_middle_grid_r() + y - 1);
+                if (coordinates[westKey] == grid.get_empty_space()){
+                    cout << "freeWest";
+                } else {
+                    cout << "takenWest";
+                }
+
             }
         }
     }

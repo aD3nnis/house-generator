@@ -9,7 +9,8 @@ class Grid{
     private:
         map<tuple<int,int>,char> coordinates;
         int grid_side;
-        int middle_of_grid_r;
+        int middle_of_grid_r; // top right corner of rooms
+        char empty_space = '.';
     public: 
         Grid(){
             grid_side = 50;
@@ -19,7 +20,7 @@ class Grid{
         void set_coordinates(map<tuple<int,int>,char> &coordinates_copy){ // coordinate nickname
             for(int x = 0; x < grid_side; x++ ){
                 for(int y =0; y < grid_side; y++){
-                    coordinates_copy[make_tuple(x,y)] = '.';
+                    coordinates_copy[make_tuple(x,y)] = empty_space;
                 }
             }
         }
@@ -28,6 +29,9 @@ class Grid{
         }
         map<tuple<int,int>,char>& get_coordinates(){
             return coordinates;
+        }
+        char get_empty_space(){
+            return empty_space;
         }
         void display_grid(){
             cout << endl;
