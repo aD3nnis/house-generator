@@ -4,7 +4,7 @@
 #include <map>
 #include <tuple>
 #include <vector>
-
+#include <set>
 using namespace std;
 
 #include "../models/Room.h"
@@ -13,8 +13,8 @@ using namespace std;
 #include "../models/House.h"
 
 class Position{
-    vector<char> free_space;
-    vector<char> taken_space;
+    set<char> free_space;
+    set<char> taken_space;
 
     public:
         // facilitator function

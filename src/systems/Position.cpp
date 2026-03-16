@@ -34,30 +34,43 @@ void Position::place_livingroom(Grid &grid, House &house){
         // facilitator function
 void Position::check_if_side_taken(Grid &grid, Room &room){
     map<tuple<int,int>,char>& coordinates = grid.get_coordinates();
+    free_space.clear();
+    taken_space.clear();
 
     for (int x = 0; x < room.get_height(); x++) {
-        cout << endl;
         for (int y = 0; y < room.get_width(); y++){
-            if(x == 0){
+            // For each side, avoid including the very last point along that wall.
+            if (x == 0 && y < room.get_width() - 1) {
                 // Check cells directly north of the room's north wall
                 auto northKey = make_tuple(room.get_anchor_x() + x - 1, room.get_anchor_y() + y);
-                if (coordinates[northKey] == grid.get_empty_space()) free_space.push_back(Room::N);
-                else taken_space.push_back(Room::N);
-            }else if (x == room.get_height() - 1){
+                cout << "northKey: (" << get<0>(northKey) << ", " << get<1>(northKey) << "): " << "\"" << coordinates[northKey] << "\"" << "y: " << y <<" room.get_width(): " << room.get_width() << endl;         
+                cout << "        free_space: ";
+                for (char s : free_space) cout << side_name(s) << " ";
+                cout << endl;
+                cout << "        free_space.count(Room::N): " << free_space.count(Room::N) << endl;
+                if (coordinates[northKey] == grid.get_empty_space() && free_space.count(Room::N) == 0 ){
+                    free_space.insert(Room::N);
+                    cout << "considered free space" << endl;
+                }
+                else if (taken_space.count(Room::N) == 0) taken_space.insert(Room::N);
+            } else if (x == room.get_height() - 1 && y < room.get_width() - 1) {
                 // Check cells directly south of the room's south wall
                 auto southKey = make_tuple(room.get_anchor_x() + x + 1, room.get_anchor_y() + y);
-                if (coordinates[southKey] == grid.get_empty_space()) free_space.push_back(Room::S);
-                else taken_space.push_back(Room::S);
-            }else if (y == room.get_width() - 1){
+                cout << "southKey: (" << get<0>(southKey) << ", " << get<1>(southKey) << "): " << "\"" << coordinates[southKey] << "\"" << endl;
+                if (coordinates[southKey] == grid.get_empty_space() && free_space.count(Room::S) == 0) free_space.insert(Room::S);
+                else if (taken_space.count(Room::S) == 0) taken_space.insert(Room::S);
+            } else if (y == room.get_width() - 1 && x < room.get_height() - 1) {
                 // Check cells directly east of the room's east wall
                 auto eastKey = make_tuple(room.get_anchor_x() + x, room.get_anchor_y() + y + 1);
-                if (coordinates[eastKey] == grid.get_empty_space()) free_space.push_back(Room::E);
-                else taken_space.push_back(Room::E);
-            }else if (y == 0){
+                cout << "eastKey: (" << get<0>(eastKey) << ", " << get<1>(eastKey) << "): " << "\"" << coordinates[eastKey] << "\"" << endl;
+                if (coordinates[eastKey] == grid.get_empty_space() && free_space.count(Room::E) == 0) free_space.insert(Room::E);
+                else if (taken_space.count(Room::E) == 0) taken_space.insert(Room::E);
+            } else if (y == 0 && x < room.get_height() - 1) {
                 // Check cells directly west of the room's west wall
                 auto westKey = make_tuple(room.get_anchor_x() + x, room.get_anchor_y() + y - 1);
-                if (coordinates[westKey] == grid.get_empty_space()) free_space.push_back(Room::W);
-                else taken_space.push_back(Room::W);
+                cout << "westKey: (" << get<0>(westKey) << ", " << get<1>(westKey) << "): " << "\"" << coordinates[westKey] << "\"" << endl;
+                if (coordinates[westKey] == grid.get_empty_space() && free_space.count(Room::W) == 0) free_space.insert(Room::W);
+                else if (taken_space.count(Room::W) == 0) taken_space.insert(Room::W);
             }
         }
     }
@@ -68,7 +81,7 @@ void Position::pick_random_free_side(Grid &grid, Room &room, Room &newRoom){
     // after check_if_side_taken has populated free_space
     if (!free_space.empty()) {
         int idx = rand() % free_space.size();   // random index in [0, size-1]
-        char side = free_space[idx];           // random free side
+        char side = *next(free_space.begin(), idx);           // random free side
 
         if (dynamic_cast<Bedroom*>(&newRoom) != nullptr) {
             cout << "[DEBUG][Bedroom] picked side " << side_name(side)
@@ -87,8 +100,6 @@ void Position::pick_random_free_side(Grid &grid, Room &room, Room &newRoom){
             picked_west_side(grid, room, newRoom);
         }
     }
-    free_space.clear();
-    taken_space.clear();
 }
 
 void Position::picked_north_side(Grid &grid, Room &room, Room &newRoom){
