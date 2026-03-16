@@ -124,7 +124,29 @@ void Position::picked_west_side(Grid &grid, Room &room, Room &newRoom){
 void Position::place_rooms_random(Grid& grid, vector<Room*>& placed, vector<Room*>& rooms_to_place)
 {
     for (Room* newRoom : rooms_to_place) {
-        Room* anchor = placed[rand() % placed.size()];   // pick any already-placed room
+
+        Room* anchor = nullptr;
+
+        // If it's a Bedroom, only choose anchors that are Kitchen or Livingroom
+        if (dynamic_cast<Bedroom*>(newRoom) != nullptr) {
+            vector<Room*> allowed;
+            for (Room* r : placed) {
+                if (dynamic_cast<Kitchen*>(r) != nullptr ||
+                    dynamic_cast<Livingroom*>(r) != nullptr) {
+                    allowed.push_back(r);
+                }
+            }
+            // Fallback in case none found (optional, but safe)
+            if (!allowed.empty()) {
+                anchor = allowed[rand() % allowed.size()];
+            } else {
+                anchor = placed[rand() % placed.size()];
+            }
+        } else {
+            // non‑bedrooms can attach to anything
+            anchor = placed[rand() % placed.size()];
+        }
+
         check_if_side_taken(grid, *anchor);
         pick_random_free_side(grid, *anchor, *newRoom);
         placed.push_back(newRoom);

@@ -15,15 +15,24 @@ using namespace std;
 
 int main()
 {
-    int bedrooms, bathrooms, totalSqft;
+    int bedrooms = 0;
+    int bathrooms = 0; 
+    int totalSqft = 0;
 
     std::cout << "\n=== House Layout Math Calculator ===\n\n";
-    std::cout << "Enter number of bedrooms  (1-6): ";
-    std::cin >> bedrooms;
-    std::cout << "Enter number of bathrooms (1-4): ";
-    std::cin >> bathrooms;
-    std::cout << "Enter total square footage (500 - 2000):";
-    std::cin >> totalSqft;
+    
+    while(bedrooms > 4 || bedrooms < 1){
+        std::cout << "Enter number of bedrooms  (1-4): ";
+        std::cin >> bedrooms;
+    }
+    while(bathrooms > 3 || bathrooms < 1){
+        std::cout << "Enter number of bathrooms (1-3): ";
+        std::cin >> bathrooms;
+    }
+    while(totalSqft > 1000 || totalSqft < 500){
+        std::cout << "Enter total square footage (500 - 1000):";
+        std::cin >> totalSqft;
+    }
     char again = 'y';
     while (again == 'y' || again == 'Y')
     {

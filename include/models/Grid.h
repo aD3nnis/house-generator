@@ -15,8 +15,8 @@ class Grid{
         char display_empty_space = '.';
     public: 
         Grid(){
-            grid_side_row = 60;
-            grid_side_col = 60;
+            grid_side_row = 70;
+            grid_side_col = 70;
             middle_of_grid_r = (int)((grid_side_row)/2)-5;  // 5 is abitrary
             set_coordinates(coordinates);
         }
