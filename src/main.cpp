@@ -60,13 +60,20 @@ int main()
 
     position.place_livingroom(grid, house1);
     position.check_if_side_taken(grid, house1.get_livingroom());
+    position.picked_east_side(grid, house1.get_livingroom(),house1.get_kitchen());
+    position.picked_north_side(grid, house1.get_livingroom(),house1.get_kitchen());
+    position.picked_south_side(grid, house1.get_livingroom(),house1.get_kitchen());
+    position.picked_west_side(grid, house1.get_livingroom(),house1.get_kitchen());
+
     vector<Room*> placed;
     placed.push_back(&house1.get_livingroom());
+    placed.push_back(&house1.get_kitchen());
+
 
     vector<Room*> toPlace;
-    toPlace.push_back(&house1.get_kitchen());
+    //toPlace.push_back(&house1.get_kitchen());
     for (int i=0; i<house1.get_bedroom_count(); ++i) toPlace.push_back(&house1.get_bedroom(i));
-    for (int i=0; i<house1.get_bathroom_count(); ++i) toPlace.push_back(&house1.get_bathroom(i));
+    // for (int i=0; i<house1.get_bathroom_count(); ++i) toPlace.push_back(&house1.get_bathroom(i));
 
     position.place_rooms_random(grid, placed, toPlace);
 
