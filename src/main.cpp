@@ -1,12 +1,12 @@
 #include "../include/systems/LayoutOutput.h"
-#include "systems/LayoutGenerator.cpp"
+#include "../include/systems/LayoutGenerator.h"
 #include "../include/models/Room.h"
 #include "../include/models/Bathroom.h"
 #include "../include/models/Bedroom.h"
 #include "../include/models/Kitchen.h"
 #include "../include/models/Livingroom.h"
 #include "../include/models/Grid.h"
-#include "../include/models/Position.h"
+#include "../include/systems/Position.h"
 #include "../include/models/House.h"
 #include <iomanip>
 #include <iostream>

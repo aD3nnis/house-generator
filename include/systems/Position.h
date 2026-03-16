@@ -1,20 +1,22 @@
+#pragma once
+
 #include <iostream>
-using namespace std;
 #include <map>
 #include <tuple>
+#include <vector>
 
-#include "Room.h"
-#include "Grid.h"
-#include "Livingroom.h"
-#include "House.h"
+using namespace std;
+
+#include "../models/Room.h"
+#include "../models/Grid.h"
+#include "../models/Livingroom.h"
+#include "../models/House.h"
 
 class Position{
-    // i need grid
     vector<char> free_space;
     vector<char> taken_space;
-    // map<tuple<int,int>char> 
 
-    public: 
+    public:
         // facilitator function
         void place_livingroom(Grid &grid, House &house);
         // facilitator function

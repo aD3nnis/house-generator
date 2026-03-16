@@ -1,4 +1,4 @@
-#include "../../include/models/Position.h"
+#include "../../include/systems/Position.h"
 #include "../../include/models/Room.h"
 #include "../../include/models/House.h"
 
@@ -20,18 +20,18 @@ void Position::check_if_side_taken(Grid &grid, Room &room){
     for (int x = 0; x < room.get_height(); x++) {
         cout << endl;
         for (int y = 0; y < room.get_width(); y++){
-            if(x == 0){ 
+            if(x == 0){
                 // Check cells directly north of the room's north wall
                 auto northKey = make_tuple(room.get_anchor_x() + x - 1, room.get_anchor_y() + y);
                 if (coordinates[northKey] == grid.get_empty_space()){
                     free_space.push_back(Room::N);
-                } 
-            }else if (x == room.get_height() - 1){ 
+                }
+            }else if (x == room.get_height() - 1){
                 // Check cells directly south of the room's south wall
                 auto southKey = make_tuple(room.get_anchor_x() + x + 1, room.get_anchor_y() + y);
                 if (coordinates[southKey] == grid.get_empty_space()){
                     free_space.push_back(Room::S);
-                } 
+                }
             }else if (y == room.get_width() - 1){
                 // Check cells directly east of the room's east wall
                 auto eastKey = make_tuple(room.get_anchor_x() + x, room.get_anchor_y() + y + 1);
@@ -152,3 +152,4 @@ void Position::place_rooms_random(Grid& grid, vector<Room*>& placed, vector<Room
         placed.push_back(newRoom);
     }
 }
+

@@ -1,0 +1,3 @@
+/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles/main.dir
+/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles/edit_cache.dir
+/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles/rebuild_cache.dir
