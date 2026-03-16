@@ -20,6 +20,8 @@ class LayoutGenerator {
         float get_max_room_variation();
         // Convert sqft to dimensions with max 3:1 aspect ratio
         void calcDimensions(float &sqft, int& width, int& height);
+        vector<float> distributePercent(int roomCount, float totalPercent, LayoutGenerator &layout_gen);
+        float randomWeight(LayoutGenerator &layout_gen);
 };
 
 #endif

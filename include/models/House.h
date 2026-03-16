@@ -20,6 +20,9 @@ class House{
     float totalBathroomPercent;
     float kitchenPercent;
 
+    vector<float> bedroomPercents;
+    vector<float> bathroomPercents;
+
     public: 
     void set_bedroom_count(int bed_count){
         bedroom.resize(bed_count);
@@ -29,7 +32,7 @@ class House{
     }
     // percent of space they take up
     void set_room_percentages();
-    
+
     void display(){
         // maybe
     }
@@ -46,10 +49,18 @@ class House{
         return kitchenPercent;
     }
     Livingroom& get_livingroom() { return livingroom; }
-
     Bedroom& get_bedroom(int i){return bedroom.at(i);}
+    Bathroom& get_bathroom(int i){return bathroom.at(i);}
+    Kitchen& get_kitchen(){return kitchen; }
 
     int get_bedroom_count(){return bedroom.size();}
     int get_bathroom_count(){return bathroom.size();}
+    int get_master_room(vector<float> room_percents, int master_num = 0);
+
+    void set_bedroom_percents(vector<float> roomPercents);
+    void set_bathroom_percents(vector<float> roomPercents);
+    
+    vector<float> get_bedroom_percents();
+    vector<float> get_bathroom_percents();
 };
 #endif
