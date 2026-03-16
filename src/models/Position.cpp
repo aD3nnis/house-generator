@@ -24,41 +24,26 @@ void Position::check_if_side_taken(Grid &grid, Room &room){
                 // Check cells directly north of the room's north wall
                 auto northKey = make_tuple(room.get_anchor_x() + x - 1, room.get_anchor_y() + y);
                 if (coordinates[northKey] == grid.get_empty_space()){
-                    cout << "freeNorth";
                     free_space.push_back(Room::N);
-                } else {
-                    cout << "takenNorth";
-                }
+                } 
             }else if (x == room.get_height() - 1){ 
                 // Check cells directly south of the room's south wall
                 auto southKey = make_tuple(room.get_anchor_x() + x + 1, room.get_anchor_y() + y);
                 if (coordinates[southKey] == grid.get_empty_space()){
-                    cout << "freeSouth";
                     free_space.push_back(Room::S);
-                } else {
-                    cout << "takenSouth";
-                }
-
+                } 
             }else if (y == room.get_width() - 1){
                 // Check cells directly east of the room's east wall
                 auto eastKey = make_tuple(room.get_anchor_x() + x, room.get_anchor_y() + y + 1);
                 if (coordinates[eastKey] == grid.get_empty_space()){
-                    cout << "freeEast"; 
                     free_space.push_back(Room::E);
-                } else {
-                    cout << "takenEast";
                 }
-
             }else if (y == 0){
                 // Check cells directly west of the room's west wall
                 auto westKey = make_tuple(room.get_anchor_x() + x, room.get_anchor_y() + y - 1);
                 if (coordinates[westKey] == grid.get_empty_space()){
-                    cout << "freeWest"; 
                     free_space.push_back(Room::W);
-                } else {
-                    cout << "takenWest";
                 }
-
             }
         }
     }
@@ -134,3 +119,14 @@ void Position::picked_west_side(Grid &grid, Room &room, Room &newRoom){
     }
 }
 
+// rooms_to_place: the rooms you still need to position (unplaced)
+// placed: rooms already placed on the grid (anchors you can attach to)
+void Position::place_rooms_random(Grid& grid, vector<Room*>& placed, vector<Room*>& rooms_to_place)
+{
+    for (Room* newRoom : rooms_to_place) {
+        Room* anchor = placed[rand() % placed.size()];   // pick any already-placed room
+        check_if_side_taken(grid, *anchor);
+        pick_random_free_side(grid, *anchor, *newRoom);
+        placed.push_back(newRoom);
+    }
+}

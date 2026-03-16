@@ -50,6 +50,7 @@ class House{
     }
     Livingroom& get_livingroom() { return livingroom; }
     Bedroom& get_bedroom(int i){return bedroom.at(i);}
+    vector<Bedroom>& get_bedrooms(){return bedroom;}
     Bathroom& get_bathroom(int i){return bathroom.at(i);}
     Kitchen& get_kitchen(){return kitchen; }
 

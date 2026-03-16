@@ -15,12 +15,6 @@ using namespace std;
 
 int main()
 {
-    House house1;
-    LayoutGenerator layout_gen;
-    Grid grid;
-    Position position;
-    srand((unsigned)time(nullptr));
-
     int bedrooms, bathrooms, totalSqft;
 
     std::cout << "\n=== House Layout Math Calculator ===\n\n";
@@ -30,6 +24,15 @@ int main()
     std::cin >> bathrooms;
     std::cout << "Enter total square footage (500 - 2000):";
     std::cin >> totalSqft;
+    char again = 'y';
+    while (again == 'y' || again == 'Y')
+    {
+    House house1;
+    LayoutGenerator layout_gen;
+    Grid grid;
+    Position position;
+    srand((unsigned)time(nullptr));
+
 
     house1.set_bedroom_count(bedrooms);
     house1.set_bathroom_count(bathrooms);
@@ -48,43 +51,18 @@ int main()
 
     position.place_livingroom(grid, house1);
     position.check_if_side_taken(grid, house1.get_livingroom());
-    position.pick_random_free_side(grid, house1.get_livingroom(), house1.get_kitchen());
+    vector<Room*> placed;
+    placed.push_back(&house1.get_livingroom());
 
-    // random get_kitchen or get_livingroom
-    int r = rand() % 3; // 0 or 1 or 2
-    for (int i = 0; i < house1.get_bedroom_count(); i++) {
-        if (r == 0 && i > 0) {
-            position.check_if_side_taken(grid, house1.get_bedroom(i-1));
-            position.pick_random_free_side(grid, house1.get_bedroom(i-1), house1.get_bedroom(i));
-        }else if (r == 1) {
-            position.check_if_side_taken(grid, house1.get_kitchen());
-            position.pick_random_free_side(grid, house1.get_kitchen(), house1.get_bedroom(i));
-        } else {
-            position.check_if_side_taken(grid, house1.get_livingroom());
-            position.pick_random_free_side(grid, house1.get_livingroom(), house1.get_bedroom(i));
-        }
-    }
-    r = rand() % 3; // 0 or 1 or 2
-    for (int i = 0; i < house1.get_bathroom_count(); i++) {
-        if (r == 0 && i > 0) {
-            position.check_if_side_taken(grid, house1.get_bathroom(i-1));
-            position.pick_random_free_side(grid, house1.get_bathroom(i-1), house1.get_bathroom(i));
-        }else if (r == 1) {
-            position.check_if_side_taken(grid, house1.get_livingroom());
-            position.pick_random_free_side(grid, house1.get_livingroom(), house1.get_bathroom(i));
-        } else {
-            position.check_if_side_taken(grid, house1.get_kitchen());
-            position.pick_random_free_side(grid, house1.get_kitchen(), house1.get_bathroom(i));
-        }
-    }
+    vector<Room*> toPlace;
+    toPlace.push_back(&house1.get_kitchen());
+    for (int i=0; i<house1.get_bedroom_count(); ++i) toPlace.push_back(&house1.get_bedroom(i));
+    for (int i=0; i<house1.get_bathroom_count(); ++i) toPlace.push_back(&house1.get_bathroom(i));
 
+    position.place_rooms_random(grid, placed, toPlace);
 
-    grid.display_grid();
-
-
-
+    // output
     vector<RoomResult> rooms;
-    // for output
 
     //  Convert to sqft and dimensions
     auto makeRoom = [&](std::string name, float percent) -> RoomResult { // pass by reference to the function
@@ -121,6 +99,13 @@ int main()
     }
 
     printLayoutReport(rooms, totalSqft);
+
+    grid.display_grid();
+
+
+    std::cout << "Do you want to run the program again? (y/n): ";
+    std::cin >> again;
+    }
 
     return 0;
 }
