@@ -15,6 +15,7 @@ private:
     int height{};
     float room_sqft{};
     string name = "Room";
+    char name_symbol = 'R';
     map<tuple<int,int>,char> walls;
 
 public:
@@ -23,7 +24,7 @@ public:
     static const char E = '!';
     static const char W = '|';
     Room(){width = 0; height = 0; room_sqft= 0;}
-    Room(string n){ name = n;}
+    Room(string n, char n_s){ name = n; name_symbol = n_s; }
 
     int get_width() { return width; }
     int get_height() { return height; }
@@ -38,6 +39,8 @@ public:
     void display_w_h(Room& r);
     void make_walls_of_room();
     void display_room_grid();
+    void place_name_in_room();
+    map<tuple<int,int>,char> get_room(){return walls;}
 
     virtual float get_default_size_ratio() = 0;
     virtual ~Room() = default;

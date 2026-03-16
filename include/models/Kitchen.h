@@ -13,7 +13,6 @@ private:
 
 public:
     float get_default_size_ratio() override;
-    Kitchen() : Room() {};
-    Kitchen(const string& n) : Room(n) {}
+    Kitchen() : Room("Kitchen", 'K') {};
 };
 #endif

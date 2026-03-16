@@ -1,35 +1,24 @@
 #include "../../include/models/Position.h"
+#include "../../include/models/Room.h"
+#include "../../include/models/House.h"
 
-
-void Position::place_livingroom(Grid &grid, Livingroom &liv){
+void Position::place_livingroom(Grid &grid, House &house){
             map<tuple<int,int>,char>& coordinates = grid.get_coordinates();
-            cout << endl;
-            int x_min = grid.get_middle_grid_r();
-            int x_max = liv.get_width() + grid.get_middle_grid_r() - 1;
-            int x_mid = liv.get_width()/2 + grid.get_middle_grid_r();
-            int y_min = grid.get_middle_grid_r();
-            int y_max = liv.get_height() + grid.get_middle_grid_r() - 1;
-            int y_mid = liv.get_height()/2 + grid.get_middle_grid_r();
-
-            for (int x = x_min; x <= x_max; x++) {
-                for (int y = y_min; y <= y_max; y++) {
-                    if( x == x_mid && y == y_mid ){
-                        coordinates[make_tuple(x, y)] = 'L';
-                    }
-                    else if (x == x_min) {
-                        coordinates[make_tuple(x, y)] = Room::N;
-                    }else if(x == x_max){
-                         coordinates[make_tuple(x, y)] = Room::S;
-                    }else if (y == y_min){
-                         coordinates[make_tuple(x, y)] = Room::W;
-                    } else if(y == y_max){
-                         coordinates[make_tuple(x, y)] = Room::E;
-                    } else{
-                        coordinates[make_tuple(x, y)] = ' ';
-                    }
-                }
-            }
+            // cout << endl;
+            // int x_min = grid.get_middle_grid_r();
+            // int x_max = liv.get_width() + grid.get_middle_grid_r() - 1;
+            // int x_mid = liv.get_width()/2 + grid.get_middle_grid_r();
+            // int y_min = grid.get_middle_grid_r();
+            // int y_max = liv.get_height() + grid.get_middle_grid_r() - 1;
+            // int y_mid = liv.get_height()/2 + grid.get_middle_grid_r();
           //  grid.display_grid();
+        for (int x = 0; x < house.get_livingroom().get_width(); x++) {
+            for (int y = 0; y < house.get_livingroom().get_height(); y++){
+                auto key = make_tuple(grid.get_middle_grid_r()+x,grid.get_middle_grid_r()+ y);
+                auto key2 = make_tuple(x,y);
+                coordinates[key] = house.get_livingroom().get_room()[key2];
+            }
+        }
 }
         // facilitator function
 void Position::check_if_side_taken(){
