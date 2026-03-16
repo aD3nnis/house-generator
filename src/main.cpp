@@ -126,12 +126,12 @@ int main()
         if (isMaster)
             name += " (Master)";
         float percent = bedroomPercents[i - 1];
-        beds[i - 1].set_room_sqft(percent, totalSqft);
-        beds[i - 1].update_dimensions(layout_gen);
+        house1.get_bedroom(i-1).set_room_sqft(percent, totalSqft);
+        house1.get_bedroom(i-1).update_dimensions(layout_gen);
         rooms.push_back(makeRoom(name, percent));
     }
-    beds[0].make_walls_of_room();
-    beds[0].display_room_grid();
+    house1.get_bedroom(0).make_walls_of_room();
+    house1.get_bedroom(0).display_room_grid();
 
     for (int i = 1; i <= bathrooms; i++)
     {

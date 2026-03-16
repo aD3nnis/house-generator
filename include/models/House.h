@@ -12,8 +12,8 @@ using namespace std;
 class House{
     private: 
     Livingroom livingroom;
-    vector<Bedroom> bedrooms;    // should i have a list?
-    vector<Bathroom> bathrooms;  // should i have a list?
+    vector<Bedroom> bedroom;    // should i have a list?
+    vector<Bathroom> bathroom;  // should i have a list?
     Kitchen kitchen;
     float livingPercent;
     float totalBedroomPercent;
@@ -22,18 +22,14 @@ class House{
 
     public: 
     void set_bedroom_count(int bed_count){
-        bedrooms.resize(bed_count);
+        bedroom.resize(bed_count);
     }
     void set_bathroom_count(int bath_count){
-        bathrooms.resize(bath_count);
+        bathroom.resize(bath_count);
     }
     // percent of space they take up
-    void set_room_percentages(){
-        livingPercent = livingroom.get_default_size_ratio();
-        totalBedroomPercent = bedrooms.size() * Bedroom().get_default_size_ratio() * livingroom.get_default_size_ratio();
-        totalBathroomPercent = bathrooms.size() * Bathroom().get_default_size_ratio() * livingroom.get_default_size_ratio();
-        kitchenPercent = kitchen.get_default_size_ratio() * livingroom.get_default_size_ratio();
-    }
+    void set_room_percentages();
+    
     void display(){
         // maybe
     }
@@ -50,5 +46,10 @@ class House{
         return kitchenPercent;
     }
     Livingroom& get_livingroom() { return livingroom; }
+
+    Bedroom& get_bedroom(int i){return bedroom.at(i);}
+
+    int get_bedroom_count(){return bedroom.size();}
+    int get_bathroom_count(){return bathroom.size();}
 };
 #endif
