@@ -17,6 +17,8 @@ private:
     string name = "Room";
     char name_symbol = 'R';
     map<tuple<int,int>,char> walls;
+    int anchorXOnGrid;
+    int anchorYOnGrid;
 
 public:
 public:
@@ -26,6 +28,11 @@ public:
     static constexpr char W = '|';
     Room(){width = 0; height = 0; room_sqft= 0;}
     Room(string n, char n_s){ name = n; name_symbol = n_s; }
+
+    void set_anchor(int x, int y) { anchorXOnGrid = x; anchorYOnGrid = y; }
+    int get_anchor_x() const { return anchorXOnGrid; }
+    int get_anchor_y() const { return anchorYOnGrid; }
+
 
     int get_width() { return width; }
     int get_height() { return height; }
