@@ -1,18 +1,10 @@
 #ifndef LAYOUT_OUTPUT_H
 #define LAYOUT_OUTPUT_H
 
-#include <string>
-#include <vector>
+#include "../models/House.h"
+#include "RuleValidator.h"
 
-struct RoomResult {
-    std::string name;
-    float percent;
-    float sqft;
-    int width;
-    int height;
-};
-
-void printRoom(const RoomResult& room);
-void printLayoutReport(const std::vector<RoomResult>& rooms, bool hasHallway, int targetSqft);
+void printRoom(const Room& room);
+void printLayoutReport(const HouseLayout& layout, const ValidationReport& report);
 
 #endif
