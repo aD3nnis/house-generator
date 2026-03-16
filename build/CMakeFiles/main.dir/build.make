@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/avadennis/Documents/projects/house-generator
+CMAKE_SOURCE_DIR = /Users/avadennis/Documents/after-college-current/projects/house-generator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/avadennis/Documents/projects/house-generator/build
+CMAKE_BINARY_DIR = /Users/avadennis/Documents/after-college-current/projects/house-generator/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/main.dir/depend.make
@@ -73,144 +73,144 @@ CMakeFiles/main.dir/codegen:
 .PHONY : CMakeFiles/main.dir/codegen
 
 CMakeFiles/main.dir/src/main.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/main.cpp.o: /Users/avadennis/Documents/projects/house-generator/src/main.cpp
+CMakeFiles/main.dir/src/main.cpp.o: /Users/avadennis/Documents/after-college-current/projects/house-generator/src/main.cpp
 CMakeFiles/main.dir/src/main.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/main.cpp.o -MF CMakeFiles/main.dir/src/main.cpp.o.d -o CMakeFiles/main.dir/src/main.cpp.o -c /Users/avadennis/Documents/projects/house-generator/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/main.cpp.o -MF CMakeFiles/main.dir/src/main.cpp.o.d -o CMakeFiles/main.dir/src/main.cpp.o -c /Users/avadennis/Documents/after-college-current/projects/house-generator/src/main.cpp
 
 CMakeFiles/main.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/projects/house-generator/src/main.cpp > CMakeFiles/main.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/after-college-current/projects/house-generator/src/main.cpp > CMakeFiles/main.dir/src/main.cpp.i
 
 CMakeFiles/main.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/projects/house-generator/src/main.cpp -o CMakeFiles/main.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/after-college-current/projects/house-generator/src/main.cpp -o CMakeFiles/main.dir/src/main.cpp.s
 
 CMakeFiles/main.dir/src/models/Bathroom.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/models/Bathroom.cpp.o: /Users/avadennis/Documents/projects/house-generator/src/models/Bathroom.cpp
+CMakeFiles/main.dir/src/models/Bathroom.cpp.o: /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Bathroom.cpp
 CMakeFiles/main.dir/src/models/Bathroom.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/models/Bathroom.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/models/Bathroom.cpp.o -MF CMakeFiles/main.dir/src/models/Bathroom.cpp.o.d -o CMakeFiles/main.dir/src/models/Bathroom.cpp.o -c /Users/avadennis/Documents/projects/house-generator/src/models/Bathroom.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/models/Bathroom.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/models/Bathroom.cpp.o -MF CMakeFiles/main.dir/src/models/Bathroom.cpp.o.d -o CMakeFiles/main.dir/src/models/Bathroom.cpp.o -c /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Bathroom.cpp
 
 CMakeFiles/main.dir/src/models/Bathroom.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/models/Bathroom.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/projects/house-generator/src/models/Bathroom.cpp > CMakeFiles/main.dir/src/models/Bathroom.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Bathroom.cpp > CMakeFiles/main.dir/src/models/Bathroom.cpp.i
 
 CMakeFiles/main.dir/src/models/Bathroom.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/models/Bathroom.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/projects/house-generator/src/models/Bathroom.cpp -o CMakeFiles/main.dir/src/models/Bathroom.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Bathroom.cpp -o CMakeFiles/main.dir/src/models/Bathroom.cpp.s
 
 CMakeFiles/main.dir/src/models/Bedroom.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/models/Bedroom.cpp.o: /Users/avadennis/Documents/projects/house-generator/src/models/Bedroom.cpp
+CMakeFiles/main.dir/src/models/Bedroom.cpp.o: /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Bedroom.cpp
 CMakeFiles/main.dir/src/models/Bedroom.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/models/Bedroom.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/models/Bedroom.cpp.o -MF CMakeFiles/main.dir/src/models/Bedroom.cpp.o.d -o CMakeFiles/main.dir/src/models/Bedroom.cpp.o -c /Users/avadennis/Documents/projects/house-generator/src/models/Bedroom.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/models/Bedroom.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/models/Bedroom.cpp.o -MF CMakeFiles/main.dir/src/models/Bedroom.cpp.o.d -o CMakeFiles/main.dir/src/models/Bedroom.cpp.o -c /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Bedroom.cpp
 
 CMakeFiles/main.dir/src/models/Bedroom.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/models/Bedroom.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/projects/house-generator/src/models/Bedroom.cpp > CMakeFiles/main.dir/src/models/Bedroom.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Bedroom.cpp > CMakeFiles/main.dir/src/models/Bedroom.cpp.i
 
 CMakeFiles/main.dir/src/models/Bedroom.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/models/Bedroom.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/projects/house-generator/src/models/Bedroom.cpp -o CMakeFiles/main.dir/src/models/Bedroom.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Bedroom.cpp -o CMakeFiles/main.dir/src/models/Bedroom.cpp.s
 
 CMakeFiles/main.dir/src/models/House.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/models/House.cpp.o: /Users/avadennis/Documents/projects/house-generator/src/models/House.cpp
+CMakeFiles/main.dir/src/models/House.cpp.o: /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/House.cpp
 CMakeFiles/main.dir/src/models/House.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/models/House.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/models/House.cpp.o -MF CMakeFiles/main.dir/src/models/House.cpp.o.d -o CMakeFiles/main.dir/src/models/House.cpp.o -c /Users/avadennis/Documents/projects/house-generator/src/models/House.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/models/House.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/models/House.cpp.o -MF CMakeFiles/main.dir/src/models/House.cpp.o.d -o CMakeFiles/main.dir/src/models/House.cpp.o -c /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/House.cpp
 
 CMakeFiles/main.dir/src/models/House.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/models/House.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/projects/house-generator/src/models/House.cpp > CMakeFiles/main.dir/src/models/House.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/House.cpp > CMakeFiles/main.dir/src/models/House.cpp.i
 
 CMakeFiles/main.dir/src/models/House.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/models/House.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/projects/house-generator/src/models/House.cpp -o CMakeFiles/main.dir/src/models/House.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/House.cpp -o CMakeFiles/main.dir/src/models/House.cpp.s
 
 CMakeFiles/main.dir/src/models/Kitchen.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/models/Kitchen.cpp.o: /Users/avadennis/Documents/projects/house-generator/src/models/Kitchen.cpp
+CMakeFiles/main.dir/src/models/Kitchen.cpp.o: /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Kitchen.cpp
 CMakeFiles/main.dir/src/models/Kitchen.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/models/Kitchen.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/models/Kitchen.cpp.o -MF CMakeFiles/main.dir/src/models/Kitchen.cpp.o.d -o CMakeFiles/main.dir/src/models/Kitchen.cpp.o -c /Users/avadennis/Documents/projects/house-generator/src/models/Kitchen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/models/Kitchen.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/models/Kitchen.cpp.o -MF CMakeFiles/main.dir/src/models/Kitchen.cpp.o.d -o CMakeFiles/main.dir/src/models/Kitchen.cpp.o -c /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Kitchen.cpp
 
 CMakeFiles/main.dir/src/models/Kitchen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/models/Kitchen.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/projects/house-generator/src/models/Kitchen.cpp > CMakeFiles/main.dir/src/models/Kitchen.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Kitchen.cpp > CMakeFiles/main.dir/src/models/Kitchen.cpp.i
 
 CMakeFiles/main.dir/src/models/Kitchen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/models/Kitchen.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/projects/house-generator/src/models/Kitchen.cpp -o CMakeFiles/main.dir/src/models/Kitchen.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Kitchen.cpp -o CMakeFiles/main.dir/src/models/Kitchen.cpp.s
 
 CMakeFiles/main.dir/src/models/Livingroom.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/models/Livingroom.cpp.o: /Users/avadennis/Documents/projects/house-generator/src/models/Livingroom.cpp
+CMakeFiles/main.dir/src/models/Livingroom.cpp.o: /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Livingroom.cpp
 CMakeFiles/main.dir/src/models/Livingroom.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/models/Livingroom.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/models/Livingroom.cpp.o -MF CMakeFiles/main.dir/src/models/Livingroom.cpp.o.d -o CMakeFiles/main.dir/src/models/Livingroom.cpp.o -c /Users/avadennis/Documents/projects/house-generator/src/models/Livingroom.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/models/Livingroom.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/models/Livingroom.cpp.o -MF CMakeFiles/main.dir/src/models/Livingroom.cpp.o.d -o CMakeFiles/main.dir/src/models/Livingroom.cpp.o -c /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Livingroom.cpp
 
 CMakeFiles/main.dir/src/models/Livingroom.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/models/Livingroom.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/projects/house-generator/src/models/Livingroom.cpp > CMakeFiles/main.dir/src/models/Livingroom.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Livingroom.cpp > CMakeFiles/main.dir/src/models/Livingroom.cpp.i
 
 CMakeFiles/main.dir/src/models/Livingroom.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/models/Livingroom.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/projects/house-generator/src/models/Livingroom.cpp -o CMakeFiles/main.dir/src/models/Livingroom.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Livingroom.cpp -o CMakeFiles/main.dir/src/models/Livingroom.cpp.s
 
 CMakeFiles/main.dir/src/models/Room.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/models/Room.cpp.o: /Users/avadennis/Documents/projects/house-generator/src/models/Room.cpp
+CMakeFiles/main.dir/src/models/Room.cpp.o: /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Room.cpp
 CMakeFiles/main.dir/src/models/Room.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/src/models/Room.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/models/Room.cpp.o -MF CMakeFiles/main.dir/src/models/Room.cpp.o.d -o CMakeFiles/main.dir/src/models/Room.cpp.o -c /Users/avadennis/Documents/projects/house-generator/src/models/Room.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/src/models/Room.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/models/Room.cpp.o -MF CMakeFiles/main.dir/src/models/Room.cpp.o.d -o CMakeFiles/main.dir/src/models/Room.cpp.o -c /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Room.cpp
 
 CMakeFiles/main.dir/src/models/Room.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/models/Room.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/projects/house-generator/src/models/Room.cpp > CMakeFiles/main.dir/src/models/Room.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Room.cpp > CMakeFiles/main.dir/src/models/Room.cpp.i
 
 CMakeFiles/main.dir/src/models/Room.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/models/Room.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/projects/house-generator/src/models/Room.cpp -o CMakeFiles/main.dir/src/models/Room.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/after-college-current/projects/house-generator/src/models/Room.cpp -o CMakeFiles/main.dir/src/models/Room.cpp.s
 
 CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o: /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutGenerator.cpp
+CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o: /Users/avadennis/Documents/after-college-current/projects/house-generator/src/systems/LayoutGenerator.cpp
 CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o -MF CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o.d -o CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o -c /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutGenerator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o -MF CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o.d -o CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o -c /Users/avadennis/Documents/after-college-current/projects/house-generator/src/systems/LayoutGenerator.cpp
 
 CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutGenerator.cpp > CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/after-college-current/projects/house-generator/src/systems/LayoutGenerator.cpp > CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.i
 
 CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutGenerator.cpp -o CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/after-college-current/projects/house-generator/src/systems/LayoutGenerator.cpp -o CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.s
 
 CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o: /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutOutput.cpp
+CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o: /Users/avadennis/Documents/after-college-current/projects/house-generator/src/systems/LayoutOutput.cpp
 CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o -MF CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o.d -o CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o -c /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutOutput.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o -MF CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o.d -o CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o -c /Users/avadennis/Documents/after-college-current/projects/house-generator/src/systems/LayoutOutput.cpp
 
 CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutOutput.cpp > CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/after-college-current/projects/house-generator/src/systems/LayoutOutput.cpp > CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.i
 
 CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutOutput.cpp -o CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/after-college-current/projects/house-generator/src/systems/LayoutOutput.cpp -o CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.s
 
 CMakeFiles/main.dir/src/systems/Position.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/systems/Position.cpp.o: /Users/avadennis/Documents/projects/house-generator/src/systems/Position.cpp
+CMakeFiles/main.dir/src/systems/Position.cpp.o: /Users/avadennis/Documents/after-college-current/projects/house-generator/src/systems/Position.cpp
 CMakeFiles/main.dir/src/systems/Position.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/main.dir/src/systems/Position.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/systems/Position.cpp.o -MF CMakeFiles/main.dir/src/systems/Position.cpp.o.d -o CMakeFiles/main.dir/src/systems/Position.cpp.o -c /Users/avadennis/Documents/projects/house-generator/src/systems/Position.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/main.dir/src/systems/Position.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/systems/Position.cpp.o -MF CMakeFiles/main.dir/src/systems/Position.cpp.o.d -o CMakeFiles/main.dir/src/systems/Position.cpp.o -c /Users/avadennis/Documents/after-college-current/projects/house-generator/src/systems/Position.cpp
 
 CMakeFiles/main.dir/src/systems/Position.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/systems/Position.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/projects/house-generator/src/systems/Position.cpp > CMakeFiles/main.dir/src/systems/Position.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/after-college-current/projects/house-generator/src/systems/Position.cpp > CMakeFiles/main.dir/src/systems/Position.cpp.i
 
 CMakeFiles/main.dir/src/systems/Position.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/systems/Position.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/projects/house-generator/src/systems/Position.cpp -o CMakeFiles/main.dir/src/systems/Position.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/after-college-current/projects/house-generator/src/systems/Position.cpp -o CMakeFiles/main.dir/src/systems/Position.cpp.s
 
 # Object files for target main
 main_OBJECTS = \
@@ -240,7 +240,7 @@ main: CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o
 main: CMakeFiles/main.dir/src/systems/Position.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -252,6 +252,6 @@ CMakeFiles/main.dir/clean:
 .PHONY : CMakeFiles/main.dir/clean
 
 CMakeFiles/main.dir/depend:
-	cd /Users/avadennis/Documents/projects/house-generator/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/avadennis/Documents/projects/house-generator /Users/avadennis/Documents/projects/house-generator /Users/avadennis/Documents/projects/house-generator/build /Users/avadennis/Documents/projects/house-generator/build /Users/avadennis/Documents/projects/house-generator/build/CMakeFiles/main.dir/DependInfo.cmake "--color=$(COLOR)" main
+	cd /Users/avadennis/Documents/after-college-current/projects/house-generator/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/avadennis/Documents/after-college-current/projects/house-generator /Users/avadennis/Documents/after-college-current/projects/house-generator /Users/avadennis/Documents/after-college-current/projects/house-generator/build /Users/avadennis/Documents/after-college-current/projects/house-generator/build /Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles/main.dir/DependInfo.cmake "--color=$(COLOR)" main
 .PHONY : CMakeFiles/main.dir/depend
 

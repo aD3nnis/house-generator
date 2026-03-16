@@ -1,6 +1,24 @@
 #include "../../include/systems/Position.h"
 #include "../../include/models/Room.h"
 #include "../../include/models/House.h"
+#include "../../include/models/Bedroom.h"
+#include "../../include/models/Kitchen.h"
+#include "../../include/models/Livingroom.h"
+
+static const char* side_name(char side) {
+    if (side == Room::N) return "N";
+    if (side == Room::S) return "S";
+    if (side == Room::E) return "E";
+    if (side == Room::W) return "W";
+    return "?";
+}
+
+static const char* room_type_name(Room* r) {
+    if (dynamic_cast<Bedroom*>(r) != nullptr) return "Bedroom";
+    if (dynamic_cast<Kitchen*>(r) != nullptr) return "Kitchen";
+    if (dynamic_cast<Livingroom*>(r) != nullptr) return "Livingroom";
+    return "Room";
+}
 
 void Position::place_livingroom(Grid &grid, House &house){
     map<tuple<int,int>,char>& coordinates = grid.get_coordinates();
@@ -23,27 +41,23 @@ void Position::check_if_side_taken(Grid &grid, Room &room){
             if(x == 0){
                 // Check cells directly north of the room's north wall
                 auto northKey = make_tuple(room.get_anchor_x() + x - 1, room.get_anchor_y() + y);
-                if (coordinates[northKey] == grid.get_empty_space()){
-                    free_space.push_back(Room::N);
-                }
+                if (coordinates[northKey] == grid.get_empty_space()) free_space.push_back(Room::N);
+                else taken_space.push_back(Room::N);
             }else if (x == room.get_height() - 1){
                 // Check cells directly south of the room's south wall
                 auto southKey = make_tuple(room.get_anchor_x() + x + 1, room.get_anchor_y() + y);
-                if (coordinates[southKey] == grid.get_empty_space()){
-                    free_space.push_back(Room::S);
-                }
+                if (coordinates[southKey] == grid.get_empty_space()) free_space.push_back(Room::S);
+                else taken_space.push_back(Room::S);
             }else if (y == room.get_width() - 1){
                 // Check cells directly east of the room's east wall
                 auto eastKey = make_tuple(room.get_anchor_x() + x, room.get_anchor_y() + y + 1);
-                if (coordinates[eastKey] == grid.get_empty_space()){
-                    free_space.push_back(Room::E);
-                }
+                if (coordinates[eastKey] == grid.get_empty_space()) free_space.push_back(Room::E);
+                else taken_space.push_back(Room::E);
             }else if (y == 0){
                 // Check cells directly west of the room's west wall
                 auto westKey = make_tuple(room.get_anchor_x() + x, room.get_anchor_y() + y - 1);
-                if (coordinates[westKey] == grid.get_empty_space()){
-                    free_space.push_back(Room::W);
-                }
+                if (coordinates[westKey] == grid.get_empty_space()) free_space.push_back(Room::W);
+                else taken_space.push_back(Room::W);
             }
         }
     }
@@ -56,6 +70,13 @@ void Position::pick_random_free_side(Grid &grid, Room &room, Room &newRoom){
         int idx = rand() % free_space.size();   // random index in [0, size-1]
         char side = free_space[idx];           // random free side
 
+        if (dynamic_cast<Bedroom*>(&newRoom) != nullptr) {
+            cout << "[DEBUG][Bedroom] picked side " << side_name(side)
+                 << " attaching to " << room_type_name(&room)
+                 << " (anchor " << room.get_anchor_x() << "," << room.get_anchor_y() << ")"
+                 << endl;
+        }
+
         if (side == Room::N) {
             picked_north_side(grid, room, newRoom);
         } else if (side == Room::S) {
@@ -67,6 +88,7 @@ void Position::pick_random_free_side(Grid &grid, Room &room, Room &newRoom){
         }
     }
     free_space.clear();
+    taken_space.clear();
 }
 
 void Position::picked_north_side(Grid &grid, Room &room, Room &newRoom){
@@ -142,12 +164,34 @@ void Position::place_rooms_random(Grid& grid, vector<Room*>& placed, vector<Room
             } else {
                 anchor = placed[rand() % placed.size()];
             }
+
+            cout << "[DEBUG][Bedroom] anchor chosen: " << room_type_name(anchor)
+                 << " at (" << anchor->get_anchor_x() << "," << anchor->get_anchor_y() << ")"
+                 << endl;
         } else {
             // non‑bedrooms can attach to anything
             anchor = placed[rand() % placed.size()];
         }
 
         check_if_side_taken(grid, *anchor);
+
+        if (dynamic_cast<Bedroom*>(newRoom) != nullptr) {
+            cout << "[DEBUG][Bedroom] sides checked around " << room_type_name(anchor) << " -> ";
+            if (!taken_space.empty()) {
+                cout << "taken: ";
+                for (char s : taken_space) cout << side_name(s) << " ";
+            } else {
+                cout << "taken: (none) ";
+            }
+            if (!free_space.empty()) {
+                cout << "| free: ";
+                for (char s : free_space) cout << side_name(s) << " ";
+            } else {
+                cout << "| free: (none) ";
+            }
+            cout << endl;
+        }
+
         pick_random_free_side(grid, *anchor, *newRoom);
         placed.push_back(newRoom);
     }
