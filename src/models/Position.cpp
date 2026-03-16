@@ -86,11 +86,11 @@ void Position::pick_random_free_side(Grid &grid, Room &room, Room &newRoom){
 
 void Position::picked_north_side(Grid &grid, Room &room, Room &newRoom){
     // Place newRoom directly above room: its bottom edge touches room's top edge
-    newRoom.set_anchor(room.get_anchor_x() - newRoom.get_height(), room.get_anchor_y());
+    newRoom.set_anchor(room.get_anchor_x() - newRoom.get_height() + 1, room.get_anchor_y());
     map<tuple<int,int>,char>& coordinates = grid.get_coordinates();
     for (int x = 0; x < newRoom.get_height(); x++) {
         for (int y = 0; y < newRoom.get_width(); y++){
-            auto key = make_tuple(newRoom.get_anchor_x() + x + 1, newRoom.get_anchor_y() + y);
+            auto key = make_tuple(newRoom.get_anchor_x() + x, newRoom.get_anchor_y() + y);
             auto key2 = make_tuple(x,y);
             coordinates[key] = newRoom.get_room()[key2];
         }
@@ -99,11 +99,11 @@ void Position::picked_north_side(Grid &grid, Room &room, Room &newRoom){
 
 void Position::picked_south_side(Grid &grid, Room &room, Room &newRoom){
     // Place newRoom directly below room: its top edge touches room's bottom edge
-    newRoom.set_anchor(room.get_anchor_x() + room.get_height(), room.get_anchor_y());
+    newRoom.set_anchor(room.get_anchor_x() + room.get_height() - 1, room.get_anchor_y());
     map<tuple<int,int>,char>& coordinates = grid.get_coordinates();
     for (int x = 0; x < newRoom.get_height(); x++) {
         for (int y = 0; y < newRoom.get_width(); y++){
-            auto key = make_tuple(newRoom.get_anchor_x() + x - 1, newRoom.get_anchor_y() + y);
+            auto key = make_tuple(newRoom.get_anchor_x() + x, newRoom.get_anchor_y() + y);
             auto key2 = make_tuple(x,y);
             coordinates[key] = newRoom.get_room()[key2];
         }
@@ -111,11 +111,11 @@ void Position::picked_south_side(Grid &grid, Room &room, Room &newRoom){
 }
 void Position::picked_east_side(Grid &grid, Room &room, Room &newRoom){
     // Place newRoom directly to the right of room: its left edge touches room's right edge
-    newRoom.set_anchor(room.get_anchor_x(), room.get_anchor_y() + room.get_width());
+    newRoom.set_anchor(room.get_anchor_x(), room.get_anchor_y() + room.get_width() - 1);
     map<tuple<int,int>,char>& coordinates = grid.get_coordinates();
     for (int x = 0; x < newRoom.get_height(); x++) {
         for (int y = 0; y < newRoom.get_width(); y++){
-            auto key = make_tuple(newRoom.get_anchor_x() + x, newRoom.get_anchor_y() + y - 1);
+            auto key = make_tuple(newRoom.get_anchor_x() + x, newRoom.get_anchor_y() + y);
             auto key2 = make_tuple(x,y);
             coordinates[key] = newRoom.get_room()[key2];
         }
@@ -123,11 +123,11 @@ void Position::picked_east_side(Grid &grid, Room &room, Room &newRoom){
 }
 void Position::picked_west_side(Grid &grid, Room &room, Room &newRoom){
     // Place newRoom directly to the left of room: its right edge touches room's left edge
-    newRoom.set_anchor(room.get_anchor_x(), room.get_anchor_y() - newRoom.get_width());
+    newRoom.set_anchor(room.get_anchor_x(), room.get_anchor_y() - newRoom.get_width() + 1);
     map<tuple<int,int>,char>& coordinates = grid.get_coordinates();
     for (int x = 0; x < newRoom.get_height(); x++) {
         for (int y = 0; y < newRoom.get_width(); y++){
-            auto key = make_tuple(newRoom.get_anchor_x() + x, newRoom.get_anchor_y() + y + 1);
+            auto key = make_tuple(newRoom.get_anchor_x() + x, newRoom.get_anchor_y() + y);
             auto key2 = make_tuple(x,y);
             coordinates[key] = newRoom.get_room()[key2];
         }

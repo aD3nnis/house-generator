@@ -23,10 +23,8 @@ void LayoutGenerator::calcDimensions(float &sqft, int& width, int& height) {
     if (width < 1) width = 1;
     height = (int)(sqft / width);
     if (height < 1) height = 1;
-    cout << "in function: width: " << width << " height: " << height << endl;
     // adjust until aspect ratio <= 3:1
     while (((float)height / width > 3.0f) || ((float)width / height > 3.0f)) {
-        cout << " in while width: " << width << "height: " << height << endl;
         width++;
         height = (int)(sqft / width);
         if (height < 1) { height = 1; break; }

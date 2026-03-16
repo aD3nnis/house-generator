@@ -30,3 +30,36 @@ vector<float> House::get_bedroom_percents(){
 vector<float> House::get_bathroom_percents(){
     return bathroomPercents;
 }
+void House::create_rooms(House &house1, LayoutGenerator &layout_gen, int totalSqft){
+    cout << "livingroom: " << endl;
+    house1.get_livingroom().set_room_sqft(house1.get_living_percent(), totalSqft);
+    house1.get_livingroom().update_dimensions(layout_gen);
+    house1.get_livingroom().make_walls_of_room();
+    house1.get_livingroom().place_name_in_room();
+    house1.get_livingroom().display_room_grid();
+
+    cout << "kitchen: " << endl;
+    house1.get_kitchen().set_room_sqft(house1.get_kitchen_percent(), totalSqft);
+    house1.get_kitchen().update_dimensions(layout_gen);
+    house1.get_kitchen().make_walls_of_room();
+    house1.get_kitchen().place_name_in_room();
+    house1.get_kitchen().display_room_grid();
+
+    for (int i = 0; i < house1.get_bedroom_count(); i++){
+        cout << "bed[" << i + 1<<"]" << endl;
+        house1.get_bedroom(i).set_room_sqft( house1.get_bedroom_percents()[i], totalSqft);
+        house1.get_bedroom(i).update_dimensions(layout_gen);
+        house1.get_bedroom(i).make_walls_of_room();
+        house1.get_bedroom(i).place_name_in_room();
+        house1.get_bedroom(i).display_room_grid();
+    }
+
+    for (int i = 0; i < house1.get_bathroom_count(); i++){
+        cout << "bath[" << i + 1<<"]" << endl;
+        house1.get_bathroom(i).set_room_sqft(house1.get_bathroom_percents()[i], totalSqft);
+        house1.get_bathroom(i).update_dimensions(layout_gen);
+        house1.get_bathroom(i).make_walls_of_room();
+        house1.get_bathroom(i).place_name_in_room();
+        house1.get_bathroom(i).display_room_grid();
+    }
+}
