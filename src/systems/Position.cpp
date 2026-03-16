@@ -4,6 +4,7 @@
 #include "../../include/models/Bedroom.h"
 #include "../../include/models/Kitchen.h"
 #include "../../include/models/Livingroom.h"
+#include "../../include/models/Grid.h"
 
 static const char* side_name(char side) {
     if (side == Room::N) return "N";
@@ -36,6 +37,10 @@ void Position::check_if_side_taken(Grid &grid, Room &room){
     map<tuple<int,int>,char>& coordinates = grid.get_coordinates();
     free_space.clear();
     taken_space.clear();
+    bool north_taken = false;
+    bool south_taken = false;
+    bool east_taken = false;
+    bool west_taken = false;
 
     for (int x = 0; x < room.get_height(); x++) {
         for (int y = 0; y < room.get_width(); y++){
@@ -48,32 +53,56 @@ void Position::check_if_side_taken(Grid &grid, Room &room){
                 for (char s : free_space) cout << side_name(s) << " ";
                 cout << endl;
                 cout << "        free_space.count(Room::N): " << free_space.count(Room::N) << endl;
-                if (coordinates[northKey] == grid.get_empty_space() && free_space.count(Room::N) == 0 ){
-                    free_space.insert(Room::N);
-                    cout << "considered free space" << endl;
+                if (coordinates[northKey] == Room::E || coordinates[northKey] == Room::W || coordinates[northKey] == ' ' && taken_space.count(Room::N) == 0 ){
+                    north_taken = true;
                 }
-                else if (taken_space.count(Room::N) == 0) taken_space.insert(Room::N);
             } else if (x == room.get_height() - 1 && y < room.get_width() - 1) {
                 // Check cells directly south of the room's south wall
                 auto southKey = make_tuple(room.get_anchor_x() + x + 1, room.get_anchor_y() + y);
                 cout << "southKey: (" << get<0>(southKey) << ", " << get<1>(southKey) << "): " << "\"" << coordinates[southKey] << "\"" << endl;
-                if (coordinates[southKey] == grid.get_empty_space() && free_space.count(Room::S) == 0) free_space.insert(Room::S);
-                else if (taken_space.count(Room::S) == 0) taken_space.insert(Room::S);
+                if (coordinates[southKey] == Room::E || coordinates[southKey] == Room::W || coordinates[southKey] == ' ' && taken_space.count(Room::S) == 0)
+                {
+                    south_taken = true;
+                }
             } else if (y == room.get_width() - 1 && x < room.get_height() - 1) {
                 // Check cells directly east of the room's east wall
                 auto eastKey = make_tuple(room.get_anchor_x() + x, room.get_anchor_y() + y + 1);
                 cout << "eastKey: (" << get<0>(eastKey) << ", " << get<1>(eastKey) << "): " << "\"" << coordinates[eastKey] << "\"" << endl;
-                if (coordinates[eastKey] == grid.get_empty_space() && free_space.count(Room::E) == 0) free_space.insert(Room::E);
-                else if (taken_space.count(Room::E) == 0) taken_space.insert(Room::E);
+                if (coordinates[eastKey] == Room::N || coordinates[eastKey] == Room::S || coordinates[eastKey] == ' ' && taken_space.count(Room::E) == 0) east_taken = true;
+
             } else if (y == 0 && x < room.get_height() - 1) {
                 // Check cells directly west of the room's west wall
                 auto westKey = make_tuple(room.get_anchor_x() + x, room.get_anchor_y() + y - 1);
                 cout << "westKey: (" << get<0>(westKey) << ", " << get<1>(westKey) << "): " << "\"" << coordinates[westKey] << "\"" << endl;
-                if (coordinates[westKey] == grid.get_empty_space() && free_space.count(Room::W) == 0) free_space.insert(Room::W);
-                else if (taken_space.count(Room::W) == 0) taken_space.insert(Room::W);
+                if (coordinates[westKey] == Room::N || coordinates[westKey] == Room::S || coordinates[westKey] == ' ' && taken_space.count(Room::W) == 0) west_taken = true;
+
             }
         }
     }
+        // AFTER both loops: decide once per side
+        if (north_taken) {
+            taken_space.insert(Room::N);
+        } else {
+            free_space.insert(Room::N);
+        }
+    
+        if (south_taken) {
+            taken_space.insert(Room::S);
+        } else {
+            free_space.insert(Room::S);
+        }
+    
+        if (east_taken) {
+            taken_space.insert(Room::E);
+        } else {
+            free_space.insert(Room::E);
+        }
+    
+        if (west_taken) {
+            taken_space.insert(Room::W);
+        } else {
+            free_space.insert(Room::W);
+        }
 }
 
 void Position::pick_random_free_side(Grid &grid, Room &room, Room &newRoom){
@@ -248,6 +277,51 @@ void Position::place_rooms_random(Grid& grid, vector<Room*>& placed, vector<Room
             }
 
             // 3) Absolute fallback: if still none, attach to a random placed room (if any)
+            if (!anchor && !placed.empty()) {
+                anchor = placed[rand() % placed.size()];
+                check_if_side_taken(grid, *anchor);
+            }
+        } else if (dynamic_cast<Bathroom*>(newRoom) != nullptr) {
+            // Bathrooms can attach to Livingroom, Bedroom, or Kitchen, but not Bathrooms
+        
+            vector<Room*> allowed;
+            for (Room* r : placed) {
+                if (dynamic_cast<Livingroom*>(r) != nullptr ||
+                    dynamic_cast<Bedroom*>(r)    != nullptr ||
+                    dynamic_cast<Kitchen*>(r)    != nullptr) {
+                    allowed.push_back(r);
+                }
+            }
+        
+            // 1) Prefer an allowed room that actually has a free side
+            for (Room* r : allowed) {
+                if (has_free_side(r)) {   // same helper you already defined
+                    anchor = r;
+                    cout << "BATHROOM: free side found for " << room_type_name(r) << endl;
+                    cout << "        free_space: ";
+                    for (char s : free_space) cout << side_name(s) << " ";
+                    cout << endl;
+                    cout << "        free_space.count(Room::N): " << free_space.count(Room::N) << endl;
+                    break;
+                }
+                cout << "BATHROOM: no free side found for " << room_type_name(r) << endl;
+            }
+        
+            // 2) If no allowed room has a free side, optionally:
+            //    (a) try *any* non-bathroom room with a free side, or
+            //    (b) try any room at all with a free side (including bathrooms), or
+            //    (c) attach bathrooms nowhere (skip placing).
+            // Example (b) – allow bathroom-bathroom only as last resort:
+            if (!anchor) {
+                for (Room* r : placed) {
+                    if (has_free_side(r)) {
+                        anchor = r;
+                        break;
+                    }
+                }
+            }
+        
+            // 3) Absolute fallback: random placed room if nothing has a free side
             if (!anchor && !placed.empty()) {
                 anchor = placed[rand() % placed.size()];
                 check_if_side_taken(grid, *anchor);

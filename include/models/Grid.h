@@ -13,6 +13,7 @@ class Grid{
         int middle_of_grid_r; // top right corner of rooms
         char empty_space = '.';
         char display_empty_space = '.';
+        char inner_room_space = ' ';
     public: 
         Grid(){
             grid_side_row = 70;
