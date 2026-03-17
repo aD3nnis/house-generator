@@ -6,24 +6,15 @@ float Bedroom::get_default_size_ratio()
 }
 Room* Bedroom::pick_anchor(const AnchorChoiceContext& ctx) const
 {
-    auto try_list = [&](const vector<Room*>& rooms) -> Room* {
-        for (Room* r : rooms) {
-            if (ctx.has_free_side(r)) return r;
-        }
-        return nullptr;
-    };
-
+    vector<Room*> allowed;
+    for (Room* r : ctx.Livingrooms) allowed.push_back(r);
+    for (Room* r : ctx.kitchens) allowed.push_back(r);
+    
     // Prefer Kitchen or Livingroom, random order
-    if (rand() % 2 == 0) {
-        Room* a = try_list(ctx.Livingrooms);
-        if (a) return a;
-        a = try_list(ctx.kitchens);
-        if (a) return a;
-    } else {
-        Room* a = try_list(ctx.kitchens);
-        if (a) return a;
-        a = try_list(ctx.Livingrooms);
-        if (a) return a;
+    shuffle(allowed.begin(), allowed.end(), rng());
+    
+    for (Room* r : allowed) {
+        if (ctx.has_free_side(r)) return r;
     }
 
     // Fallback: any placed room with free side
