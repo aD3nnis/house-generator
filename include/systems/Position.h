@@ -5,6 +5,8 @@
 #include <tuple>
 #include <vector>
 #include <set>
+#include <vector>
+#include <functional>
 
 using namespace std;
 

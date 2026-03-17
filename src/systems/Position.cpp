@@ -157,144 +157,26 @@ void Position::picked_west_side(Grid &grid, Room &room, Room &newRoom){
 // placed: rooms already placed on the grid (anchors you can attach to)
 void Position::place_rooms_random(Grid& grid, vector<Room*>& placed, vector<Room*>& rooms_to_place)
 {
+    // function to check if a room has a free side
+    auto has_free_side = [&](Room* cand) -> bool {
+        check_if_side_taken(grid, *cand);
+        return !free_space.empty();
+    };
+
     for (Room* newRoom : rooms_to_place) {
-        Room* anchor = nullptr;
-
-        // Helper: does this candidate have at least one free side?
-        auto has_free_side = [&](Room* cand) -> bool {
-            check_if_side_taken(grid, *cand);
-            return !free_space.empty();
-        };
-
-        if (dynamic_cast<Bedroom*>(newRoom) != nullptr) {
-            // Build lists of kitchens and livingrooms among already placed rooms
-            vector<Room*> kitchens;
-            vector<Room*> livingrooms;
-            for (Room* r : placed) {
-                if (dynamic_cast<Kitchen*>(r) != nullptr) {
-                    kitchens.push_back(r);
-                } else if (dynamic_cast<Livingroom*>(r) != nullptr) {
-                    livingrooms.push_back(r);
-                }
-            }
-
-            // coin flip: 0 = kitchens first, 1 = livingrooms first
-            int preferLivingroomFirst = rand() % 2;
-
-            auto try_list_for_anchor = [&](const vector<Room*>& rooms) -> Room* {
-                for (Room* r : rooms) {
-                    if (has_free_side(r)) {
-                        return r;
-                    }
-                }
-                return nullptr;
-            };
-
-            if (preferLivingroomFirst) {
-                // 1) Try livingrooms first
-                anchor = try_list_for_anchor(livingrooms);
-                // 2) If none, then kitchens
-                if (!anchor) {
-                    anchor = try_list_for_anchor(kitchens);
-                }
-            } else {
-                // 1) Try kitchens first
-                anchor = try_list_for_anchor(kitchens);
-                // 2) If none, then livingrooms
-                if (!anchor) {
-                    anchor = try_list_for_anchor(livingrooms);
-                }
-            }
-
-            // 3) If still none, try any placed room with a free side
-            if (!anchor) {
-                for (Room* r : placed) {
-                    if (has_free_side(r)) {
-                        anchor = r;
-                        break;
-                    }
-                }
-            }
-
-            // 4) Absolute fallback: just pick a random placed room
-            if (!anchor && !placed.empty()) {
-                anchor = placed[rand() % placed.size()];
-                check_if_side_taken(grid, *anchor);
-            }
-        } else if (dynamic_cast<Kitchen*>(newRoom) != nullptr) {
-            // Kitchens should branch off a Livingroom
-            vector<Room*> livingrooms;
-            for (Room* r : placed) {
-                if (dynamic_cast<Livingroom*>(r) != nullptr) {
-                    livingrooms.push_back(r);
-                }
-            }
-
-            // 1) Prefer a livingroom that actually has a free side
-            for (Room* lr : livingrooms) {
-                if (has_free_side(lr)) {
-                    anchor = lr;
-                    break;
-                }
-            }
-
-            // 2) Fallback: if no livingroom has a free side, try any placed room with a free side
-            if (!anchor) {
-                for (Room* r : placed) {
-                    if (has_free_side(r)) {
-                        anchor = r;
-                        break;
-                    }
-                }
-            }
-
-            // 3) Absolute fallback: if still none, attach to a random placed room (if any)
-            if (!anchor && !placed.empty()) {
-                anchor = placed[rand() % placed.size()];
-                check_if_side_taken(grid, *anchor);
-            }
-        } else if (dynamic_cast<Bathroom*>(newRoom) != nullptr) {
-            // Bathrooms can attach to Livingroom, Bedroom, or Kitchen, but not Bathrooms
-        
-            vector<Room*> allowed;
-            for (Room* r : placed) {
-                if (dynamic_cast<Livingroom*>(r) != nullptr ||
-                    dynamic_cast<Bedroom*>(r)    != nullptr ||
-                    dynamic_cast<Kitchen*>(r)    != nullptr) {
-                    allowed.push_back(r);
-                }
-            }
-        
-            // 1) Prefer an allowed room that actually has a free side
-            for (Room* r : allowed) {
-                if (has_free_side(r)) {   // same helper you already defined
-                    anchor = r;
-                    break;
-                }
-            }
-            
-            // 2) Fallback:
-            if (!anchor) {
-                for (Room* r : placed) {
-                    if (has_free_side(r)) {
-                        anchor = r;
-                        break;
-                    }
-                }
-            }
-        
-            // 3) Absolute fallback: random placed room if nothing has a free side
-            if (!anchor && !placed.empty()) {
-                anchor = placed[rand() % placed.size()];
-                check_if_side_taken(grid, *anchor);
-            }
-        } else {
-            // Non-bedrooms, non-kitchens can attach to any placed room
-            if (!placed.empty()) {
-                anchor = placed[rand() % placed.size()];
-                check_if_side_taken(grid, *anchor);
+        // Build context from placed (using get_type(), no dynamic_cast on newRoom)
+        // AnchorChoiceContext struct called ctx 
+        AnchorChoiceContext ctx{ placed, {}, {}, {}, {}, has_free_side };
+        for (Room* r : placed) {
+            switch (r->get_type()) {
+                case  RoomType::Kitchen:    ctx.kitchens.push_back(r);    break;
+                case  RoomType::Livingroom: ctx.livingrooms.push_back(r); break;
+                case  RoomType::Bedroom:    ctx.bedrooms.push_back(r);    break;
+                case  RoomType::Bathroom:   ctx.bathrooms.push_back(r);   break;
             }
         }
+
+        Room* anchor = newRoom->pick_anchor(ctx);  // polymorphism, no cast
 
         if (anchor) {
             pick_random_free_side(grid, *anchor, *newRoom);
@@ -302,5 +184,3 @@ void Position::place_rooms_random(Grid& grid, vector<Room*>& placed, vector<Room
         placed.push_back(newRoom);
     }
 }
-
-

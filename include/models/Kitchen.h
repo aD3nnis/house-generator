@@ -14,5 +14,7 @@ private:
 public:
     float get_default_size_ratio() override;
     Kitchen() : Room("Kitchen", 'K') {};
+    RoomType get_type() const override { return RoomType::Kitchen; }
+    Room* pick_anchor(const AnchorChoiceContext& ctx) const override;
 };
 #endif
