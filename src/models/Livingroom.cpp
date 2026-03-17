@@ -11,3 +11,9 @@ void Livingroom::set_livingroom_size(float bedrooms, float bed_size, float bathr
     float x = (100.0f) / denominator;
     livingroom_size = x;
 }
+
+Room* Livingroom::pick_anchor(const AnchorChoiceContext& ctx) const
+{
+    if (ctx.placed.empty()) return nullptr;
+    return ctx.placed[rand() % ctx.placed.size()];
+}

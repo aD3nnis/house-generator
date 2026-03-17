@@ -1,12 +1,25 @@
+#ifndef ROOM_H
+#define ROOM_H
 #include <iostream>
 #include <map> // for dict
 #include <tuple> // for make_tuple member function
+#include <random>
 using namespace std;
 #include "../systems/LayoutGenerator.h"
 
-#pragma once
-#ifndef ROOM_H
-#define ROOM_H
+class Room; 
+
+// can be catagorize rooms by any type
+enum class RoomType {Bedroom, Kitchen, Livingroom, Bathroom};
+
+struct AnchorChoiceContext {
+    const vector<Room*>& placed;
+    vector<Room*> kitchens;
+    vector<Room*> Livingrooms;
+    vector<Room*> bedrooms;
+    vector<Room*> bathrooms;
+    function<bool(Room*)> has_free_side;
+};
 
 class Room
 {
@@ -26,6 +39,7 @@ public:
     static constexpr char S = '-';
     static constexpr char E = '!';
     static constexpr char W = '|';
+    static mt19937& rng(); //mt19937 is a random number generator
     Room(){width = 0; height = 0; room_sqft= 0;}
     Room(string n, char n_s){ name = n; name_symbol = n_s; }
 
@@ -50,6 +64,9 @@ public:
     void place_name_in_room();
     map<tuple<int,int>,char> get_room(){return walls;}
 
+
+    virtual RoomType get_type() const = 0;
+    virtual Room* pick_anchor(const AnchorChoiceContext& ctx) const = 0;
     virtual float get_default_size_ratio() = 0;
     virtual ~Room() = default;
     
