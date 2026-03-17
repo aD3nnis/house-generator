@@ -26,9 +26,6 @@ class Position{
         void check_if_side_taken(Grid &grid, Room &room);
         void pick_random_free_side(Grid &grid, Room &room, Room &newRoom);
 
-        void picked_north_side(Grid &grid, Room &room, Room &newRoom);
-        void picked_south_side(Grid &grid, Room &room, Room &newRoom);
-        void picked_east_side(Grid &grid, Room &room, Room &newRoom);
-        void picked_west_side(Grid &grid, Room &room, Room &newRoom);
+        void picked_side(Grid &grid, Room &room, Room &newRoom);
         void place_rooms_random(Grid& grid, vector<Room*>& placed, vector<Room*>& rooms_to_place);
 };
