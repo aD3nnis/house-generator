@@ -88,8 +88,6 @@ void Position::pick_random_free_side(Grid &grid, Room &room, Room &newRoom){
     if (!free_space.empty()) {
         int idx = rand() % free_space.size();   // random index in [0, size-1]
         char side = *next(free_space.begin(), idx);           // random free side
-        if (dynamic_cast<Bedroom*>(&newRoom) != nullptr) {
-        }
 
         if (side == Room::N) {
             picked_north_side(grid, room, newRoom);
