@@ -48,6 +48,7 @@ int main() {
 
     // I used temporary classes because the default size ratio is the same for
     // each
+    // my formula for lvingroom size: x = (100) / (b*r1 + a*r2 + r3 + 1)
     house1.get_livingroom().set_livingroom_size(
         house1.get_bedroom_count(), Bedroom().get_default_size_ratio(),
         house1.get_bathroom_count(), Bathroom().get_default_size_ratio(),
@@ -103,8 +104,6 @@ int main() {
       bool isMaster =
           (i - 1 == house1.get_master_room(house1.get_bedroom_percents()));
       std::string name = "Bedroom " + std::to_string(i);
-      if (isMaster)
-        name += " (Master)";
       rooms.push_back(makeRoom(name, house1.get_bedroom_percents()[i - 1]));
     }
 
@@ -113,8 +112,6 @@ int main() {
           (house1.get_bathroom_count() > 1) &&
           (i - 1 == house1.get_master_room(house1.get_bathroom_percents()));
       std::string name = "Bathroom " + std::to_string(i);
-      if (isEnsuite)
-        name += " (Ensuite)";
       float percent = house1.get_bathroom_percents()[i - 1];
 
       rooms.push_back(makeRoom(name, percent));

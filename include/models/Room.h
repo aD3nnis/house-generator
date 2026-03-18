@@ -52,17 +52,13 @@ public:
 
   int get_width() { return width; }
   int get_height() { return height; }
-  void set_width(int w) { width = w; }
-  void set_height(int h) { height = h; }
 
   void set_room_sqft(float percent, float totalSqft);
   float get_room_sqft();
 
   void update_dimensions(LayoutGenerator &layout_gen);
 
-  void display_w_h(Room &r) const;
   void make_walls_of_room();
-  void display_room_grid();
   void place_name_in_room();
   std::map<std::tuple<int, int>, char> get_room() { return walls; }
 

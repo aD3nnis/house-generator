@@ -32,7 +32,6 @@ public:
   }
   int get_middle_grid_r() { return middle_of_grid_r; }
   map<tuple<int, int>, char> &get_coordinates() { return coordinates; }
-  char get_empty_space() { return empty_space; }
   void display_grid() {
     cout << endl;
     for (int x = 0; x < grid_side_col; x++) {
