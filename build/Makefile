@@ -57,10 +57,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/avadennis/Documents/after-college-current/projects/house-generator
+CMAKE_SOURCE_DIR = /Users/avadennis/Documents/projects/house-generator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/avadennis/Documents/after-college-current/projects/house-generator/build
+CMAKE_BINARY_DIR = /Users/avadennis/Documents/projects/house-generator/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles /Users/avadennis/Documents/after-college-current/projects/house-generator/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/avadennis/Documents/projects/house-generator/build/CMakeFiles /Users/avadennis/Documents/projects/house-generator/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/avadennis/Documents/projects/house-generator/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named house_generator
+# Target rules for targets named main
 
 # Build rule for target.
-house_generator: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 house_generator
-.PHONY : house_generator
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-house_generator/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/house_generator.dir/build.make CMakeFiles/house_generator.dir/build
-.PHONY : house_generator/fast
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/house_generator.dir/build.make CMakeFiles/house_generator.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -142,7 +142,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/house_generator.dir/build.make CMakeFiles/house_generator.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -150,7 +150,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/house_generator.dir/build.make CMakeFiles/house_generator.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 src/systems/LayoutGenerator.o: src/systems/LayoutGenerator.cpp.o
@@ -158,7 +158,7 @@ src/systems/LayoutGenerator.o: src/systems/LayoutGenerator.cpp.o
 
 # target to build an object file
 src/systems/LayoutGenerator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/house_generator.dir/build.make CMakeFiles/house_generator.dir/src/systems/LayoutGenerator.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o
 .PHONY : src/systems/LayoutGenerator.cpp.o
 
 src/systems/LayoutGenerator.i: src/systems/LayoutGenerator.cpp.i
@@ -166,7 +166,7 @@ src/systems/LayoutGenerator.i: src/systems/LayoutGenerator.cpp.i
 
 # target to preprocess a source file
 src/systems/LayoutGenerator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/house_generator.dir/build.make CMakeFiles/house_generator.dir/src/systems/LayoutGenerator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.i
 .PHONY : src/systems/LayoutGenerator.cpp.i
 
 src/systems/LayoutGenerator.s: src/systems/LayoutGenerator.cpp.s
@@ -174,7 +174,7 @@ src/systems/LayoutGenerator.s: src/systems/LayoutGenerator.cpp.s
 
 # target to generate assembly for a file
 src/systems/LayoutGenerator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/house_generator.dir/build.make CMakeFiles/house_generator.dir/src/systems/LayoutGenerator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.s
 .PHONY : src/systems/LayoutGenerator.cpp.s
 
 src/systems/LayoutOutput.o: src/systems/LayoutOutput.cpp.o
@@ -182,7 +182,7 @@ src/systems/LayoutOutput.o: src/systems/LayoutOutput.cpp.o
 
 # target to build an object file
 src/systems/LayoutOutput.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/house_generator.dir/build.make CMakeFiles/house_generator.dir/src/systems/LayoutOutput.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o
 .PHONY : src/systems/LayoutOutput.cpp.o
 
 src/systems/LayoutOutput.i: src/systems/LayoutOutput.cpp.i
@@ -190,7 +190,7 @@ src/systems/LayoutOutput.i: src/systems/LayoutOutput.cpp.i
 
 # target to preprocess a source file
 src/systems/LayoutOutput.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/house_generator.dir/build.make CMakeFiles/house_generator.dir/src/systems/LayoutOutput.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.i
 .PHONY : src/systems/LayoutOutput.cpp.i
 
 src/systems/LayoutOutput.s: src/systems/LayoutOutput.cpp.s
@@ -198,7 +198,7 @@ src/systems/LayoutOutput.s: src/systems/LayoutOutput.cpp.s
 
 # target to generate assembly for a file
 src/systems/LayoutOutput.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/house_generator.dir/build.make CMakeFiles/house_generator.dir/src/systems/LayoutOutput.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.s
 .PHONY : src/systems/LayoutOutput.cpp.s
 
 src/systems/RuleValidator.o: src/systems/RuleValidator.cpp.o
@@ -206,7 +206,7 @@ src/systems/RuleValidator.o: src/systems/RuleValidator.cpp.o
 
 # target to build an object file
 src/systems/RuleValidator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/house_generator.dir/build.make CMakeFiles/house_generator.dir/src/systems/RuleValidator.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/systems/RuleValidator.cpp.o
 .PHONY : src/systems/RuleValidator.cpp.o
 
 src/systems/RuleValidator.i: src/systems/RuleValidator.cpp.i
@@ -214,7 +214,7 @@ src/systems/RuleValidator.i: src/systems/RuleValidator.cpp.i
 
 # target to preprocess a source file
 src/systems/RuleValidator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/house_generator.dir/build.make CMakeFiles/house_generator.dir/src/systems/RuleValidator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/systems/RuleValidator.cpp.i
 .PHONY : src/systems/RuleValidator.cpp.i
 
 src/systems/RuleValidator.s: src/systems/RuleValidator.cpp.s
@@ -222,7 +222,7 @@ src/systems/RuleValidator.s: src/systems/RuleValidator.cpp.s
 
 # target to generate assembly for a file
 src/systems/RuleValidator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/house_generator.dir/build.make CMakeFiles/house_generator.dir/src/systems/RuleValidator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/systems/RuleValidator.cpp.s
 .PHONY : src/systems/RuleValidator.cpp.s
 
 # Help Target
@@ -233,7 +233,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... house_generator"
+	@echo "... main"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

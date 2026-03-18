@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"/Users/avadennis/Documents/after-college-current/projects/house-generator/build/cmake_install.cmake"
+		"/Users/avadennis/Documents/projects/house-generator/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

@@ -1,4 +1,4 @@
-CMakeFiles/house_generator.dir/src/systems/LayoutGenerator.cpp.o: \
+CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o: \
   /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutGenerator.cpp \
   /Users/avadennis/Documents/projects/house-generator/src/systems/../../include/systems/LayoutGenerator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector \

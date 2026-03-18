@@ -54,20 +54,20 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/avadennis/Documents/after-college-current/projects/house-generator
+CMAKE_SOURCE_DIR = /Users/avadennis/Documents/projects/house-generator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/avadennis/Documents/after-college-current/projects/house-generator/build
+CMAKE_BINARY_DIR = /Users/avadennis/Documents/projects/house-generator/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/house_generator.dir/all
+all: CMakeFiles/main.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/house_generator.dir/codegen
+codegen: CMakeFiles/main.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -75,40 +75,40 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/house_generator.dir/clean
+clean: CMakeFiles/main.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/house_generator.dir
+# Target rules for target CMakeFiles/main.dir
 
 # All Build rule for target.
-CMakeFiles/house_generator.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/house_generator.dir/build.make CMakeFiles/house_generator.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/house_generator.dir/build.make CMakeFiles/house_generator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target house_generator"
-.PHONY : CMakeFiles/house_generator.dir/all
+CMakeFiles/main.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target main"
+.PHONY : CMakeFiles/main.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/house_generator.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles 5
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/house_generator.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles 0
-.PHONY : CMakeFiles/house_generator.dir/rule
+CMakeFiles/main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/avadennis/Documents/projects/house-generator/build/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/avadennis/Documents/projects/house-generator/build/CMakeFiles 0
+.PHONY : CMakeFiles/main.dir/rule
 
 # Convenience name for target.
-house_generator: CMakeFiles/house_generator.dir/rule
-.PHONY : house_generator
+main: CMakeFiles/main.dir/rule
+.PHONY : main
 
 # codegen rule for target.
-CMakeFiles/house_generator.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/house_generator.dir/build.make CMakeFiles/house_generator.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/avadennis/Documents/after-college-current/projects/house-generator/build/CMakeFiles --progress-num=1,2,3,4,5 "Finished codegen for target house_generator"
-.PHONY : CMakeFiles/house_generator.dir/codegen
+CMakeFiles/main.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles --progress-num=1,2,3,4,5 "Finished codegen for target main"
+.PHONY : CMakeFiles/main.dir/codegen
 
 # clean rule for target.
-CMakeFiles/house_generator.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/house_generator.dir/build.make CMakeFiles/house_generator.dir/clean
-.PHONY : CMakeFiles/house_generator.dir/clean
+CMakeFiles/main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/clean
+.PHONY : CMakeFiles/main.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -1,5 +1,5 @@
 CMakeFiles/house_generator.dir/src/main.cpp.o: \
-  /Users/avadennis/Documents/after-college-current/projects/house-generator/src/main.cpp \
+  /Users/avadennis/Documents/projects/house-generator/src/main.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
@@ -731,10 +731,10 @@ CMakeFiles/house_generator.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_fsfilcnt_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__bsd_locale_defaults.h \
-  /Users/avadennis/Documents/after-college-current/projects/house-generator/src/../include/models/LayoutRequest.h \
-  /Users/avadennis/Documents/after-college-current/projects/house-generator/src/../include/systems/LayoutGenerator.h \
-  /Users/avadennis/Documents/after-college-current/projects/house-generator/src/../include/systems/../models/House.h \
-  /Users/avadennis/Documents/after-college-current/projects/house-generator/src/../include/models/Room.h \
-  /Users/avadennis/Documents/after-college-current/projects/house-generator/src/../include/models/Position.h \
-  /Users/avadennis/Documents/after-college-current/projects/house-generator/src/../include/systems/LayoutOutput.h \
-  /Users/avadennis/Documents/after-college-current/projects/house-generator/src/../include/systems/RuleValidator.h
+  /Users/avadennis/Documents/projects/house-generator/src/../include/models/LayoutRequest.h \
+  /Users/avadennis/Documents/projects/house-generator/src/../include/systems/LayoutGenerator.h \
+  /Users/avadennis/Documents/projects/house-generator/src/../include/systems/../models/House.h \
+  /Users/avadennis/Documents/projects/house-generator/src/../include/models/Room.h \
+  /Users/avadennis/Documents/projects/house-generator/src/../include/models/Position.h \
+  /Users/avadennis/Documents/projects/house-generator/src/../include/systems/LayoutOutput.h \
+  /Users/avadennis/Documents/projects/house-generator/src/../include/systems/RuleValidator.h
