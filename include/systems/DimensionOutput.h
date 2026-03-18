@@ -1,5 +1,5 @@
-#ifndef LAYOUT_OUTPUT_H
-#define LAYOUT_OUTPUT_H
+#ifndef DIMENSION_OUTPUT_H
+#define DIMENSION_OUTPUT_H
 
 #include <string>
 #include <vector>
@@ -13,6 +13,8 @@ struct RoomResult {
 };
 
 void printRoom(const RoomResult &room);
-void printLayoutReport(const std::vector<RoomResult> &rooms, int targetSqft);
+void printDimensionReport(const std::vector<RoomResult> &rooms,
+                           int targetSqft);
 
 #endif
+

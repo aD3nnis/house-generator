@@ -170,33 +170,33 @@ CMakeFiles/main.dir/src/models/Room.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/models/Room.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/projects/house-generator/src/models/Room.cpp -o CMakeFiles/main.dir/src/models/Room.cpp.s
 
-CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o: /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutGenerator.cpp
-CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o -MF CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o.d -o CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o -c /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutGenerator.cpp
+CMakeFiles/main.dir/src/systems/DimensionGenerator.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/systems/DimensionGenerator.cpp.o: /Users/avadennis/Documents/projects/house-generator/src/systems/DimensionGenerator.cpp
+CMakeFiles/main.dir/src/systems/DimensionGenerator.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/src/systems/DimensionGenerator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/systems/DimensionGenerator.cpp.o -MF CMakeFiles/main.dir/src/systems/DimensionGenerator.cpp.o.d -o CMakeFiles/main.dir/src/systems/DimensionGenerator.cpp.o -c /Users/avadennis/Documents/projects/house-generator/src/systems/DimensionGenerator.cpp
 
-CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutGenerator.cpp > CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.i
+CMakeFiles/main.dir/src/systems/DimensionGenerator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/systems/DimensionGenerator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/projects/house-generator/src/systems/DimensionGenerator.cpp > CMakeFiles/main.dir/src/systems/DimensionGenerator.cpp.i
 
-CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutGenerator.cpp -o CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.s
+CMakeFiles/main.dir/src/systems/DimensionGenerator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/systems/DimensionGenerator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/projects/house-generator/src/systems/DimensionGenerator.cpp -o CMakeFiles/main.dir/src/systems/DimensionGenerator.cpp.s
 
-CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o: /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutOutput.cpp
-CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o -MF CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o.d -o CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o -c /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutOutput.cpp
+CMakeFiles/main.dir/src/systems/DimensionOutput.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/systems/DimensionOutput.cpp.o: /Users/avadennis/Documents/projects/house-generator/src/systems/DimensionOutput.cpp
+CMakeFiles/main.dir/src/systems/DimensionOutput.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/avadennis/Documents/projects/house-generator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/src/systems/DimensionOutput.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/systems/DimensionOutput.cpp.o -MF CMakeFiles/main.dir/src/systems/DimensionOutput.cpp.o.d -o CMakeFiles/main.dir/src/systems/DimensionOutput.cpp.o -c /Users/avadennis/Documents/projects/house-generator/src/systems/DimensionOutput.cpp
 
-CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutOutput.cpp > CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.i
+CMakeFiles/main.dir/src/systems/DimensionOutput.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/systems/DimensionOutput.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/avadennis/Documents/projects/house-generator/src/systems/DimensionOutput.cpp > CMakeFiles/main.dir/src/systems/DimensionOutput.cpp.i
 
-CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutOutput.cpp -o CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.s
+CMakeFiles/main.dir/src/systems/DimensionOutput.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/systems/DimensionOutput.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/avadennis/Documents/projects/house-generator/src/systems/DimensionOutput.cpp -o CMakeFiles/main.dir/src/systems/DimensionOutput.cpp.s
 
 CMakeFiles/main.dir/src/systems/Position.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/systems/Position.cpp.o: /Users/avadennis/Documents/projects/house-generator/src/systems/Position.cpp
@@ -221,8 +221,8 @@ main_OBJECTS = \
 "CMakeFiles/main.dir/src/models/Kitchen.cpp.o" \
 "CMakeFiles/main.dir/src/models/Livingroom.cpp.o" \
 "CMakeFiles/main.dir/src/models/Room.cpp.o" \
-"CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o" \
-"CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o" \
+"CMakeFiles/main.dir/src/systems/DimensionGenerator.cpp.o" \
+"CMakeFiles/main.dir/src/systems/DimensionOutput.cpp.o" \
 "CMakeFiles/main.dir/src/systems/Position.cpp.o"
 
 # External object files for target main
@@ -235,8 +235,8 @@ main: CMakeFiles/main.dir/src/models/House.cpp.o
 main: CMakeFiles/main.dir/src/models/Kitchen.cpp.o
 main: CMakeFiles/main.dir/src/models/Livingroom.cpp.o
 main: CMakeFiles/main.dir/src/models/Room.cpp.o
-main: CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o
-main: CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o
+main: CMakeFiles/main.dir/src/systems/DimensionGenerator.cpp.o
+main: CMakeFiles/main.dir/src/systems/DimensionOutput.cpp.o
 main: CMakeFiles/main.dir/src/systems/Position.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/link.txt

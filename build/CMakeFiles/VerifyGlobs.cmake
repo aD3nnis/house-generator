@@ -11,8 +11,8 @@ set(OLD_GLOB
   "/Users/avadennis/Documents/projects/house-generator/src/models/Kitchen.cpp"
   "/Users/avadennis/Documents/projects/house-generator/src/models/Livingroom.cpp"
   "/Users/avadennis/Documents/projects/house-generator/src/models/Room.cpp"
-  "/Users/avadennis/Documents/projects/house-generator/src/systems/LayoutGenerator.cpp"
-  "/Users/avadennis/Documents/projects/house-generator/src/systems/LayoutOutput.cpp"
+  "/Users/avadennis/Documents/projects/house-generator/src/systems/DimensionGenerator.cpp"
+  "/Users/avadennis/Documents/projects/house-generator/src/systems/DimensionOutput.cpp"
   "/Users/avadennis/Documents/projects/house-generator/src/systems/Position.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")

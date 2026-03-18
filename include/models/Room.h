@@ -7,7 +7,7 @@
 #include <tuple>
 #include <vector>
 
-class LayoutGenerator;
+class DimensionGenerator;
 class Room;
 
 // rooms can be categorized by any type
@@ -56,7 +56,7 @@ public:
   void set_room_sqft(float percent, float totalSqft);
   float get_room_sqft();
 
-  void update_dimensions(LayoutGenerator &layout_gen);
+  void update_dimensions(DimensionGenerator &dimension_gen);
 
   void make_walls_of_room();
   void place_name_in_room();

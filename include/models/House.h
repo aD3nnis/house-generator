@@ -49,6 +49,6 @@ public:
   vector<float> get_bedroom_percents();
   vector<float> get_bathroom_percents();
 
-  void create_rooms(House &house1, LayoutGenerator &layout_gen, int totalSqft);
+  void create_rooms(House &house1, DimensionGenerator &dimension_gen, int totalSqft);
 };
 #endif

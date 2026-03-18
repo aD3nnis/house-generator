@@ -1,7 +1,10 @@
-#include "../../include/systems/LayoutOutput.h"
+#include "../../include/systems/DimensionOutput.h"
 
 #include <iomanip>
 #include <iostream>
+
+// prints the room results in a table format
+// I let cursor write output of the dimensions table for me
 
 void printRoom(const RoomResult &room) {
   std::cout << std::left << std::setw(20) << room.name << std::right
@@ -12,7 +15,8 @@ void printRoom(const RoomResult &room) {
             << "\n";
 }
 
-void printLayoutReport(const std::vector<RoomResult> &rooms, int targetSqft) {
+void printDimensionReport(const std::vector<RoomResult> &rooms,
+                           int targetSqft) {
   std::cout << "\n=== Results ===\n";
   std::cout << std::string(58, '-') << "\n";
   std::cout << std::left << std::setw(20) << "Room" << std::right
@@ -40,3 +44,4 @@ void printLayoutReport(const std::vector<RoomResult> &rooms, int targetSqft) {
             << "  |  Diff: " << std::fixed << std::setprecision(1)
             << (totalRoomSqft - targetSqft) << " sqft\n\n";
 }
+

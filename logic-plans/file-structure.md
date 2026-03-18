@@ -18,7 +18,7 @@ house-layout/
 │   │   └── Grid.h
 │   │
 │   ├── systems/
-│   │   ├── LayoutGenerator.h
+│   │   ├── DimensionGenerator.h
 │   │   ├── RuleValidator.h
 │   │   └── Renderer.h
 │   │
@@ -39,7 +39,7 @@ house-layout/
 │   │   └── Grid.cpp
 │   │
 │   ├── systems/
-│   │   ├── LayoutGenerator.cpp
+│   │   ├── DimensionGenerator.cpp
 │   │   ├── RuleValidator.cpp
 │   │   └── Renderer.cpp
 │   │

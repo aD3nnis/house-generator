@@ -1,5 +1,5 @@
 #include "../../include/models/Room.h"
-#include "../../include/systems/LayoutGenerator.h"
+#include "../../include/systems/DimensionGenerator.h"
 
 #include <tuple>
 #include <utility>
@@ -10,8 +10,8 @@ void Room::set_room_sqft(float percent, float totalSqft) {
 
 float Room::get_room_sqft() { return room_sqft; }
 
-void Room::update_dimensions(LayoutGenerator &layout_gen) {
-  layout_gen.calcDimensions(room_sqft, width, height);
+void Room::update_dimensions(DimensionGenerator &dimension_gen) {
+  dimension_gen.calcDimensions(room_sqft, width, height);
 }
 
 void Room::make_walls_of_room() {

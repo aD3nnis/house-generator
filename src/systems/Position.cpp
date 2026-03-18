@@ -120,6 +120,8 @@ void Position::pick_random_free_side(Grid &grid, Room &room, Room &newRoom) {
   }
 }
 
+// I wrote this function
+// it places the new room directly above the room it is touching
 void Position::picked_side(Grid &grid, Room &room, Room &newRoom) {
   // Place newRoom directly above room: its bottom edge touches room's top edge
   map<tuple<int, int>, char> &coordinates = grid.get_coordinates();
@@ -132,18 +134,28 @@ void Position::picked_side(Grid &grid, Room &room, Room &newRoom) {
     }
   }
 }
+
 // rooms_to_place: the rooms you still need to position (unplaced)
 // placed: rooms already placed on the grid (anchors you can attach to)
+// cursor helped with the logic of this function
+// it wasnt my idea to use a struct for the rooms to place.
+// my idea behind this was checking for free sides and placing the room directly above the room it is touching.
+// at first i had it all in this function and it chose free sides at random.
+// but i knew i wanted rooms to have specific logic.
+// at first in this function types of rooms had their own set of conditions.
+// that became a very long if statement so i asked for help with how do i change this to polymorphism.
+// what i then realized is i could put all the rooms with avaiable sides in a single vector and shuffle it.
+// thats what i did with the bedroom and bathrooms
 void Position::place_rooms_random(Grid &grid, vector<Room *> &placed,
                                   vector<Room *> &rooms_to_place) {
-  auto has_free_side = [&](Room *cand) -> bool {
+  auto has_free_side = [&](Room *cand) -> bool { // lambda function to check if a room has a free side
     check_if_side_taken(grid, *cand);
     return !free_space.empty();
   };
 
-  for (Room *newRoom : rooms_to_place) {
+  for (Room *newRoom : rooms_to_place) { // iterate through the rooms to place
 
-    AnchorChoiceContext ctx{placed, {}, {}, {}, {}, has_free_side};
+    AnchorChoiceContext ctx{placed, {}, {}, {}, {}, has_free_side}; // context object to store the rooms with available sides
 
     for (Room *r : placed) {
       switch (r->get_type()) {

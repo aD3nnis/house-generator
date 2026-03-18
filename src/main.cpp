@@ -5,8 +5,8 @@
 #include "../include/models/Kitchen.h"
 #include "../include/models/Livingroom.h"
 #include "../include/models/Room.h"
-#include "../include/systems/LayoutGenerator.h"
-#include "../include/systems/LayoutOutput.h"
+#include "../include/systems/DimensionGenerator.h"
+#include "../include/systems/DimensionOutput.h"
 #include "../include/systems/Position.h"
 #include <iomanip>
 #include <iostream>
@@ -38,7 +38,7 @@ int main() {
   char again = 'y';
   while (again == 'y' || again == 'Y') {
     House house1;
-    LayoutGenerator layout_gen;
+    DimensionGenerator dimension_gen;
     Grid grid;
     Position position;
     srand((unsigned)time(nullptr));
@@ -58,13 +58,13 @@ int main() {
     house1.set_room_percentages();
 
     // random weight for the room
-    house1.set_bedroom_percents(layout_gen.distributePercent(
+    house1.set_bedroom_percents(dimension_gen.distributePercent(
         house1.get_bedroom_count(), house1.get_total_bedroom_percent(),
-        layout_gen));
-    house1.set_bathroom_percents(layout_gen.distributePercent(
+        dimension_gen));
+    house1.set_bathroom_percents(dimension_gen.distributePercent(
         house1.get_bathroom_count(), house1.get_total_bathroom_percent(),
-        layout_gen));
-    house1.create_rooms(house1, layout_gen, totalSqft);
+        dimension_gen));
+    house1.create_rooms(house1, dimension_gen, totalSqft);
 
     position.place_livingroom(grid, house1);
     position.check_if_side_taken(grid, house1.get_livingroom());
@@ -80,7 +80,9 @@ int main() {
 
     position.place_rooms_random(grid, placed, toPlace);
 
-    // output
+    // below is all for output in terminal of the dimensions table
+    // I let cursor handle the table format and information input. I didn't create the room result struct
+    // what I changed was making functions dependent on my house object instead of variables declared in main
     vector<RoomResult> rooms;
 
     //  Convert to sqft and dimensions
@@ -91,7 +93,7 @@ int main() {
       r.name = name;                       // set the name of the room
       r.percent = percent;                 // set the percentage of the room
       r.sqft = (percent / 100.0f) * totalSqft; // set the sqft of the room
-      layout_gen.calcDimensions(
+      dimension_gen.calcDimensions(
           r.sqft, r.width, r.height); // calculate the dimensions of the room
       return r;
     };
@@ -117,7 +119,7 @@ int main() {
       rooms.push_back(makeRoom(name, percent));
     }
 
-    printLayoutReport(rooms, totalSqft);
+    printDimensionReport(rooms, totalSqft);
 
     grid.display_grid();
     cout << "Please scroll UP to view house floor plan and room dimensions \n";
