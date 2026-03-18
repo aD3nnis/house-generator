@@ -3,3 +3,4 @@
 3. find more efficient way to check room size that's less repetitive: currently a long if else statement
 4. get rid of unused functions.
 5. allow user to output floor plan to md file in House folder so they can keep floor plans they like. 
+6. if bedroom side has bathroom, do not attach a bathroom to any open side on the bedroom.
