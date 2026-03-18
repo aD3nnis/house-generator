@@ -123,7 +123,7 @@ int main() {
     printLayoutReport(rooms, totalSqft);
 
     grid.display_grid();
-
+    cout << "Please scroll UP to view house floor plan and room dimensions \n";
     cout << "Do you want to run the program again? (y/n): ";
     cin >> again;
   }

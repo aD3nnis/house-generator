@@ -13,7 +13,7 @@ private:
   int grid_side_col;
   int middle_of_grid_r; // top right corner of rooms
   char empty_space = '.';
-  char display_empty_space = '.';
+  char display_empty_space = ' ';
 
 public:
   Grid() {

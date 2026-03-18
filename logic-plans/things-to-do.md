@@ -1,15 +1,16 @@
 
-make getters i house for bed, kit, bath
+make getters i house for bed, kit, bath ✅
 
-how to get a list of bed objects? from house?
+how to get a list of bed objects? from house? ✅
 
-move position to system - because its functions and does not take up physical space in house
+move position to system - because its functions and does not take up physical space in house ✅
 
 figure out if house and maybe room should be in a different folder
 
-reorganize files in proper function order: i.e constructors, setters, getters, facilitors, descuctors
+reorganize files in proper function order: i.e constructors, setters, getters, facilitors, descuctors ✅
 
-place the full house on the grid after house is complete, to start it cant be on the grid and checking grid <- hold on i might be wrong because it can check inbetween its positon spots
+place the full house on the grid after house is complete, to start it cant be on the grid and checking grid ✅
+<- hold on i might be wrong because it can check inbetween its positon spots 
 because 
 grid.get_middle_grid_r()+ x is starting point
     // if(x == 0){   <- north 
