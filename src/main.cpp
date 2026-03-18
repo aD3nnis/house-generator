@@ -18,7 +18,8 @@ int main() {
     int bathrooms = 0;
     int totalSqft = 0;
 
-    cout << "\n\"...screw it, I'm gonna go build a house\" - Jack, AH \n";
+    cout << "\n\"...screw it, I'm gonna go build a house\"\n";
+    cout << "                           - Jack, Achievement Hunter \n";
     cout << "\n====== House Layout Generator ======\n\n";
 
 
@@ -123,8 +124,8 @@ int main() {
 
     grid.display_grid();
 
-    std::cout << "Do you want to run the program again? (y/n): ";
-    std::cin >> again;
+    cout << "Do you want to run the program again? (y/n): ";
+    cin >> again;
   }
 
   return 0;
