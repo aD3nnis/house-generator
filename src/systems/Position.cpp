@@ -148,8 +148,11 @@ void Position::picked_side(Grid &grid, Room &room, Room &newRoom) {
 // thats what i did with the bedroom and bathrooms
 void Position::place_rooms_random(Grid &grid, vector<Room *> &placed,
                                   vector<Room *> &rooms_to_place) {
-  auto has_free_side = [&](Room *cand) -> bool { // lambda function to check if a room has a free side
-    check_if_side_taken(grid, *cand);
+                                    
+// lambda function to check if a room has a free side
+// function is called inside each child room object. 
+  auto has_free_side = [&](Room *cand) -> bool { 
+    check_if_side_taken(grid, *cand); 
     return !free_space.empty();
   };
 
@@ -157,7 +160,7 @@ void Position::place_rooms_random(Grid &grid, vector<Room *> &placed,
 
     AnchorChoiceContext ctx{placed, {}, {}, {}, {}, has_free_side}; // context object to store the rooms with available sides
 
-    for (Room *r : placed) {
+    for (Room *r : placed) { // add rooms to the context object
       switch (r->get_type()) {
       case RoomType::Kitchen:
         ctx.kitchens.push_back(r);
@@ -174,10 +177,10 @@ void Position::place_rooms_random(Grid &grid, vector<Room *> &placed,
       }
     }
 
-    Room *anchor = newRoom->pick_anchor(ctx); // polymorphism
+    Room *anchor_room = newRoom->pick_anchor(ctx); // polymorphism, based on room child object
 
-    if (anchor) {
-      pick_random_free_side(grid, *anchor, *newRoom);
+    if (anchor_room) {
+      pick_random_free_side(grid, *anchor_room, *newRoom);
     }
     placed.push_back(newRoom);
   }
