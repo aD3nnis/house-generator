@@ -1,6 +1,6 @@
 CMakeFiles/main.dir/src/systems/LayoutOutput.cpp.o: \
-  /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutOutput.cpp \
-  /Users/avadennis/Documents/projects/house-generator/src/systems/../../include/systems/LayoutOutput.h \
+  /Users/avadennis/Documents/after-college-current/projects/house-generator/src/systems/LayoutOutput.cpp \
+  /Users/avadennis/Documents/after-college-current/projects/house-generator/src/systems/../../include/systems/LayoutOutput.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/max.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/comp.h \

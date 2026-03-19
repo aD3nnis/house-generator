@@ -1,5 +1,5 @@
 CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o: \
-  /Users/avadennis/Documents/projects/house-generator/src/systems/LayoutGenerator.cpp \
+  /Users/avadennis/Documents/after-college-current/projects/house-generator/src/systems/LayoutGenerator.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
@@ -732,5 +732,5 @@ CMakeFiles/main.dir/src/systems/LayoutGenerator.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__bsd_locale_defaults.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip \
-  /Users/avadennis/Documents/projects/house-generator/src/systems/../../include/systems/LayoutOutput.h \
-  /Users/avadennis/Documents/projects/house-generator/src/systems/../../include/systems/LayoutGenerator.h
+  /Users/avadennis/Documents/after-college-current/projects/house-generator/src/systems/../../include/systems/LayoutOutput.h \
+  /Users/avadennis/Documents/after-college-current/projects/house-generator/src/systems/../../include/systems/LayoutGenerator.h

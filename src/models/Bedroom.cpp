@@ -1,4 +1,6 @@
 #include "../../include/models/Bedroom.h"
+#include <random>
+
 // scope resolution operator (::) so same function but different namespace
 float Bedroom::get_default_size_ratio()
 {
@@ -12,8 +14,9 @@ Room* Bedroom::pick_anchor(const AnchorChoiceContext& ctx) const {
         }
         return nullptr;
     };
-    // Prefer Kitchen or Livingroom, random order
-    if (rand() % 2 == 0) {
+    // Prefer Kitchen or Livingroom, random order using shared RNG
+    std::uniform_int_distribution<int> coin(0, 1);
+    if (coin(Room::rng()) == 0) {
         Room* a = try_list(ctx.livingrooms);
         if (a) return a;
         a = try_list(ctx.kitchens);
@@ -28,8 +31,10 @@ Room* Bedroom::pick_anchor(const AnchorChoiceContext& ctx) const {
     for (Room* r : ctx.placed) {
         if (ctx.has_free_side(r)) return r;
     }
-    // Last resort: random placed room
-    if (!ctx.placed.empty())
-        return ctx.placed[rand() % ctx.placed.size()];
+    // Last resort: random placed room using shared RNG
+    if (!ctx.placed.empty()) {
+        std::uniform_int_distribution<size_t> dist(0, ctx.placed.size() - 1);
+        return ctx.placed[dist(Room::rng())];
+    }
     return nullptr;
 }

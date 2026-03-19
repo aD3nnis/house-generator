@@ -1,4 +1,5 @@
 #include "../../include/models/Room.h"
+#include <random>
 
 void Room::set_room_sqft(float percent, float totalSqft){
     this->room_sqft = (percent / 100.0f) * totalSqft; 
@@ -52,6 +53,10 @@ void Room::display_room_grid(){
         }
         cout << endl;
     }
+}
+mt19937& Room::rng(){
+    static mt19937 engine(42);
+    return engine;
 }
 
 

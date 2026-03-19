@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/avadennis/Documents/projects/house-generator/include
+CXX_INCLUDES = -I/Users/avadennis/Documents/after-college-current/projects/house-generator/include
 
 CXX_FLAGSarm64 = -std=c++17 -arch arm64
 

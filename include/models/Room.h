@@ -3,6 +3,7 @@
 #include <tuple> // for make_tuple member function
 #include <vector>
 #include <functional>
+#include <random>
 using namespace std;
 #include "../systems/LayoutGenerator.h"
 
@@ -42,6 +43,7 @@ public:
     static constexpr char S = '-';
     static constexpr char E = '!';
     static constexpr char W = '|';
+    static mt19937& rng();
     Room(){width = 0; height = 0; room_sqft= 0;}
     Room(string n, char n_s){ name = n; name_symbol = n_s; }
 
