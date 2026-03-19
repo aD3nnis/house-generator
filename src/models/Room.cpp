@@ -39,7 +39,6 @@ void Room::place_name_in_room() {
 }
 
 std::mt19937 &Room::rng() {
-  static std::mt19937 engine(
-      42); // 42 is a seed for the random number generator
+  static std::mt19937 engine(42); // 42 is a seed for the random number generator
   return engine;
 }
